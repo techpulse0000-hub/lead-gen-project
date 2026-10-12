@@ -1,0 +1,2396 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-10-12",
+  "market": "Dallas, Tarrant, Collin and Denton counties, Texas",
+  "companies": [
+    {
+      "id": "kpost",
+      "name": "KPost Company",
+      "website": "https://kpostcompany.com/",
+      "segment": "Roofing and building envelope",
+      "location": "Dallas / Fort Worth, Texas",
+      "location_evidence": "https://kpostcompany.com/",
+      "relationship": "research_prospect"
+    },
+    {
+      "id": "bakertriangle",
+      "name": "BakerTriangle",
+      "website": "https://bakertriangle.com/",
+      "segment": "Drywall, acoustical and exterior specialty construction",
+      "location": "Texas; DFW projects",
+      "location_evidence": "https://bakertriangle.com/",
+      "relationship": "research_prospect"
+    },
+    {
+      "id": "polk",
+      "name": "Polk Mechanical Company",
+      "website": "https://www.polkmechanical.com/",
+      "segment": "Mechanical, plumbing and HVAC construction",
+      "location": "Grand Prairie, Texas",
+      "location_evidence": "https://www.polkmechanical.com/",
+      "relationship": "research_prospect"
+    },
+    {
+      "id": "rogers_obrien",
+      "name": "Rogers-O'Brien Construction",
+      "website": "https://r-o.com/",
+      "segment": "General construction",
+      "location": "Texas; Dallas / Fort Worth projects",
+      "location_evidence": "https://r-o.com/",
+      "relationship": "research_prospect"
+    },
+    {
+      "id": "tdindustries",
+      "name": "TDIndustries",
+      "website": "https://www.tdindustries.com/",
+      "segment": "Mechanical construction and facility services",
+      "location": "Dallas, Texas",
+      "location_evidence": "https://www.tdindustries.com/",
+      "relationship": "research_prospect"
+    },
+    {
+      "id": "hill_wilkinson",
+      "name": "Hill & Wilkinson General Contractors",
+      "website": "https://hill-wilkinson.com/",
+      "segment": "General construction",
+      "location": "Richardson, Texas",
+      "location_evidence": "https://hill-wilkinson.com/",
+      "relationship": "research_prospect"
+    }
+  ],
+  "sources": [
+    {
+      "id": "dallas_council",
+      "name": "Dallas City Council agendas and minutes",
+      "url": "https://dallascityhall.com/government/citysecretary/Pages/cMeetings.aspx",
+      "category": "government",
+      "geography": "Dallas",
+      "authority": "primary_public_record",
+      "signals": [
+        "contract_award",
+        "project_start"
+      ],
+      "caution": "An agenda proposal is not an approved award. Find the decision and named executing contractor.",
+      "identity_verified": true,
+      "verification_url": "https://dallascityhall.com/government/citysecretary/Pages/cMeetings.aspx",
+      "verification_note": "Public council records page opened through the research browser; direct retrieval timed out.",
+      "checked_at": "2026-10-12T11:21:59.541400+00:00",
+      "direct_access": "unavailable",
+      "final_url": "https://dallascityhall.com/government/citysecretary/Pages/cMeetings.aspx",
+      "access_mode": "indexed_search_and_manual_review",
+      "research_links": []
+    },
+    {
+      "id": "fort_worth_bids",
+      "name": "Fort Worth procurement and bids",
+      "url": "https://www.fortworthtexas.gov/departments/finance/bids",
+      "category": "government",
+      "geography": "Fort Worth",
+      "authority": "primary_public_record",
+      "signals": [
+        "contract_award"
+      ],
+      "caution": "Bid solicitations are discovery hints, not awards. Bonfire may require separate access.",
+      "identity_verified": true,
+      "verification_url": "https://www.fortworthtexas.gov/departments/finance/bids",
+      "verification_note": "City procurement page opened through the research browser; direct request returned 403.",
+      "checked_at": "2026-10-12T11:21:59.629580+00:00",
+      "direct_access": "unavailable",
+      "final_url": "https://www.fortworthtexas.gov/departments/finance/bids",
+      "access_mode": "indexed_search_and_manual_review",
+      "research_links": []
+    },
+    {
+      "id": "fort_worth_records",
+      "name": "Fort Worth City Secretary public documents",
+      "url": "https://publicdocuments.fortworthtexas.gov/",
+      "category": "government",
+      "geography": "Fort Worth",
+      "authority": "primary_public_record",
+      "signals": [
+        "contract_award",
+        "project_start",
+        "project_completed"
+      ],
+      "caution": "Check event dates and completion status; newly indexed records may describe old projects.",
+      "identity_verified": true,
+      "verification_url": "https://publicdocuments.fortworthtexas.gov/CSODOCS/DocView.aspx?dbid=0&id=360665&repo=City-Secretary",
+      "verification_note": "City Secretary project completion record opened; verify actual event dates separately from indexing.",
+      "checked_at": "2026-10-12T11:22:00.972588+00:00",
+      "direct_access": "unavailable",
+      "final_url": "https://publicdocuments.fortworthtexas.gov/",
+      "access_mode": "indexed_search_and_manual_review",
+      "research_links": []
+    },
+    {
+      "id": "txdot",
+      "name": "TxDOT statewide letting and awards",
+      "url": "https://www.txdot.gov/business/road-bridge-maintenance/contract-letting.html",
+      "category": "government",
+      "geography": "Texas; filter Dallas and Fort Worth districts",
+      "authority": "primary_public_record",
+      "signals": [
+        "contract_award",
+        "project_start"
+      ],
+      "caution": "Distinguish letting schedules, bid tabs, apparent low bidders and final award decisions.",
+      "identity_verified": true,
+      "verification_url": "https://www.txdot.gov/business/road-bridge-maintenance/contract-letting.html",
+      "verification_note": "Official contract-letting page found, including links for award/rejection decisions. Replaces a 404 URL.",
+      "checked_at": "2026-10-12T11:27:18.979372+00:00",
+      "direct_access": "retrieved",
+      "final_url": "https://www.txdot.gov/business/road-bridge-maintenance/contract-letting.html",
+      "access_mode": "selective_public_fetch",
+      "research_links": [
+        "https://tableau.txdot.gov/views/AwardedorRejectedProjects/AwardedContracts?:embed=y",
+        "https://tableau.txdot.gov/views/CanceledorChangedProjects/CanceledorChangedProjects?:embed=y",
+        "https://tableau.txdot.gov/views/DBEGoals-ExternalWebsite/DBEGoals-UpcomingProjects?%3Aembed=y",
+        "https://tableau.txdot.gov/views/ProjectInformationDashboard/NoticetoContractors",
+        "https://tableau.txdot.gov/views/ProjectInformationDashboard/NoticetoContractors?%3Aembed=y&%3B%3AshowAppBanner=false&%3B%3Adisplay_count=n&%3B%3AshowVizHome=n",
+        "https://www.txdot.gov/about/careers.html",
+        "https://www.txdot.gov/about/contact-us.html",
+        "https://www.txdot.gov/about/contact-us/compact-with-texans.html",
+        "https://www.txdot.gov/about/contact-us/report-an-issue.html",
+        "https://www.txdot.gov/about/contact-us/report-fraud.html",
+        "https://www.txdot.gov/about/contact-us/submit-an-open-records-request.html",
+        "https://www.txdot.gov/about/newsroom.html",
+        "https://www.txdot.gov/about/newsroom/media-contacts.html",
+        "https://www.txdot.gov/business/road-bridge-maintenance/contract-letting/project-addenda-information.html",
+        "https://www.txdot.gov/business/road-bridge-maintenance/contract-letting/project-letting-dashboards.html",
+        "https://www.txdot.gov/data-maps/maritime-divisions-project-dashboards.html",
+        "https://www.txdot.gov/projects.html",
+        "https://www.txdot.gov/projects/hearings-meetings.html",
+        "https://www.txdot.gov/projects/planning.html",
+        "https://www.txdot.gov/projects/project-tracker.html",
+        "https://www.txdot.gov/projects/projects-studies.html",
+        "https://www.txdot.gov/projects/research-projects.html"
+      ]
+    },
+    {
+      "id": "sam",
+      "name": "SAM.gov contract opportunities",
+      "url": "https://sam.gov/",
+      "category": "government",
+      "geography": "United States; filter place of performance",
+      "authority": "primary_public_record",
+      "signals": [
+        "contract_award",
+        "project_start"
+      ],
+      "caution": "API key and quotas apply. Most opportunity notices are not completed awards.",
+      "preferred_access": "official_api",
+      "identity_verified": true,
+      "verification_url": "https://sam.gov/",
+      "verification_note": "Curated organization identity and retrieved official/publisher page inspected.",
+      "checked_at": "2026-10-12T11:22:01.941643+00:00",
+      "direct_access": "retrieved",
+      "final_url": "https://sam.gov/",
+      "access_mode": "official_api",
+      "research_links": [
+        "https://sam.gov/about/contact"
+      ]
+    },
+    {
+      "id": "usaspending",
+      "name": "USAspending federal award data",
+      "url": "https://www.usaspending.gov/",
+      "category": "government",
+      "geography": "United States; filter place of performance",
+      "authority": "primary_public_record",
+      "signals": [
+        "contract_award"
+      ],
+      "caution": "Transactions may be modifications or obligations on an existing award. Use award identity and action dates.",
+      "preferred_access": "official_api",
+      "identity_verified": true,
+      "verification_url": "https://www.usaspending.gov/",
+      "verification_note": "Curated organization identity and retrieved official/publisher page inspected.",
+      "checked_at": "2026-10-12T11:22:03.588645+00:00",
+      "direct_access": "retrieved",
+      "final_url": "https://www.usaspending.gov/",
+      "access_mode": "official_api",
+      "research_links": []
+    },
+    {
+      "id": "construction_dive",
+      "name": "Construction Dive",
+      "url": "https://www.constructiondive.com/",
+      "category": "trade_news",
+      "geography": "United States",
+      "authority": "secondary_editorial",
+      "signals": [
+        "contract_award",
+        "project_start",
+        "expansion"
+      ],
+      "caution": "Corroborate company identity and event dates with primary sources.",
+      "identity_verified": true,
+      "verification_url": "https://www.constructiondive.com/",
+      "verification_note": "Curated organization identity and retrieved official/publisher page inspected.",
+      "checked_at": "2026-10-12T11:22:03.713053+00:00",
+      "direct_access": "retrieved",
+      "final_url": "https://www.constructiondive.com/",
+      "access_mode": "selective_public_fetch",
+      "research_links": [
+        "https://www.bloomberg.com/news/articles/2026-10-08/environmental-groups-criticize-senate-permitting-deal-as-bad-bargain",
+        "https://www.constructiondive.com/contact/",
+        "https://www.constructiondive.com/feeds/news/",
+        "https://www.constructiondive.com/news/2027-top-construction-trade-shows/832065/",
+        "https://www.constructiondive.com/news/3-contractors-military-construction-september-2026/831968/",
+        "https://www.constructiondive.com/news/5-construction-trends-2026/808904/",
+        "https://www.constructiondive.com/news/a-question-hangs-over-ai-construction-boom/832470/",
+        "https://www.constructiondive.com/news/anduril-industries-u-s-navy-arsenal-2-shipyard-baltimore-county-maryland/832467/",
+        "https://www.constructiondive.com/news/caterpillar-ultium-cells-1b-facility-investments-avio-usa-genentech/832097/",
+        "https://www.constructiondive.com/news/constellation-google-nuclear-deal-data-center-energy/832351/",
+        "https://www.constructiondive.com/news/construction-trends-outlook-2026/810859/",
+        "https://www.constructiondive.com/news/contractors-project-wins-stadiums-us/831524/",
+        "https://www.constructiondive.com/news/data-center-construction-spending-august/831954/",
+        "https://www.constructiondive.com/news/data-center-contractors-learn-to-live-backlash/832142/",
+        "https://www.constructiondive.com/news/dol-to-up-minimum-wage-federal-contractors/832509/",
+        "https://www.constructiondive.com/news/dot-awards-critical-infrastructure-projects/832265/",
+        "https://www.constructiondive.com/news/education-healthcare-projects-boosted-construction-planning-september/832535/",
+        "https://www.constructiondive.com/news/fisk-electric-tutor-perini-data-center-modular/832658/",
+        "https://www.constructiondive.com/news/fluor-jgc-win-contracts-lng-canada-phase-2-expansion/831739/",
+        "https://www.constructiondive.com/news/gilbane-marvel-complete-sustainable-nyc-job-design-build/831943/",
+        "https://www.constructiondive.com/news/gov-reynolds-signs-bill-1b-tax-incentives-iowa-steel-mill-mesabi-metallics/832230/",
+        "https://www.constructiondive.com/news/granite-jv-big-creek-tunnel-cleveland-ohio/832047/",
+        "https://www.constructiondive.com/news/hitt-groundbreaking-avio-usa/832480/",
+        "https://www.constructiondive.com/news/megaprojects-grab-1-in-4-nonresidential-construction-dollars/832256/",
+        "https://www.constructiondive.com/news/nccer-craftpro-construction-trains-new-hires-level-up-vets/831859/",
+        "https://www.constructiondive.com/news/office-to-housing-conversion-chicago-downtown/831867/",
+        "https://www.constructiondive.com/news/opioid-crisis-naloxone-osha-abc-construction-overdose/832026/",
+        "https://www.constructiondive.com/news/punch-list-bechtel-ted-danson-hensel-phelps-hq/832590/",
+        "https://www.constructiondive.com/news/punch-list-skanska-breaks-ground-on-750m-biotech-project-nvidia-taps-jac/831991/",
+        "https://www.constructiondive.com/news/sage-acquires-paperless-environments-construction-payroll-tech/832130/",
+        "https://www.constructiondive.com/news/skanska-wins-education-builds-college-high-school-construction/832347/",
+        "https://www.constructiondive.com/news/suffolk-targets-sports-stadiums-division/832304/",
+        "https://www.constructiondive.com/news/thick-walls-needed-absorb-data-center-noise-research/831999/",
+        "https://www.constructiondive.com/news/tutor-perini-skanska-win-coast-guard-jobs/832227/",
+        "https://www.constructiondive.com/selfservice/event-listings/contact"
+      ]
+    },
+    {
+      "id": "enr",
+      "name": "Engineering News-Record",
+      "url": "https://www.enr.com/",
+      "category": "trade_news",
+      "geography": "United States; Texas coverage",
+      "authority": "secondary_editorial",
+      "signals": [
+        "contract_award",
+        "project_start",
+        "expansion"
+      ],
+      "caution": "Some articles require a subscription. Keep the reference and seek accessible primary corroboration.",
+      "identity_verified": true,
+      "verification_url": "https://www.enr.com/",
+      "verification_note": "ENR publisher homepage opened in the research browser. Direct robots request returned 403; articles may need a subscription.",
+      "checked_at": "2026-10-12T11:22:05.341346+00:00",
+      "direct_access": "robots_check_failed",
+      "final_url": "https://www.enr.com/",
+      "access_mode": "indexed_search_and_manual_review",
+      "research_links": []
+    },
+    {
+      "id": "dallas_innovates",
+      "name": "Dallas Innovates",
+      "url": "https://dallasinnovates.com/",
+      "category": "regional_news",
+      "geography": "North Texas",
+      "authority": "secondary_editorial",
+      "signals": [
+        "expansion",
+        "project_start",
+        "hiring"
+      ],
+      "caution": "Editorial and sponsored/company-supplied material must retain their different provenance.",
+      "identity_verified": true,
+      "verification_url": "https://dallasinnovates.com/",
+      "verification_note": "Curated organization identity and retrieved official/publisher page inspected.",
+      "checked_at": "2026-10-12T11:22:06.195777+00:00",
+      "direct_access": "retrieved",
+      "final_url": "https://dallasinnovates.com/",
+      "access_mode": "selective_public_fetch",
+      "research_links": []
+    },
+    {
+      "id": "dallas_bizjournal",
+      "name": "Dallas Business Journal",
+      "url": "https://www.bizjournals.com/dallas/",
+      "category": "regional_news",
+      "geography": "Dallas / Fort Worth",
+      "authority": "secondary_editorial",
+      "signals": [
+        "expansion",
+        "project_start",
+        "contract_award"
+      ],
+      "caution": "Subscription-dependent coverage; no paywall bypass.",
+      "identity_verified": true,
+      "verification_url": "https://www.bizjournals.com/dallas/",
+      "verification_note": "Dallas Business Journal homepage opened in the research browser. Direct robots request returned 403; article access may need a subscription.",
+      "checked_at": "2026-10-12T11:22:06.807732+00:00",
+      "direct_access": "robots_check_failed",
+      "final_url": "https://www.bizjournals.com/dallas/",
+      "access_mode": "indexed_search_and_manual_review",
+      "research_links": []
+    },
+    {
+      "id": "business_wire",
+      "name": "Business Wire",
+      "url": "https://www.businesswire.com/",
+      "category": "press_release",
+      "geography": "United States",
+      "authority": "company_supplied_release",
+      "signals": [
+        "expansion",
+        "contract_award",
+        "project_start"
+      ],
+      "caution": "Syndicated copies of one announcement are one source lineage, not independent corroboration.",
+      "identity_verified": true,
+      "verification_url": "https://www.businesswire.com/",
+      "verification_note": "Business Wire homepage opened in the research browser. Direct request timed out. Treat published releases as company-supplied material.",
+      "checked_at": "2026-10-12T11:22:07.641087+00:00",
+      "direct_access": "unavailable",
+      "final_url": "https://www.businesswire.com/",
+      "access_mode": "indexed_search_and_manual_review",
+      "research_links": []
+    },
+    {
+      "id": "dallas_chamber",
+      "name": "Dallas Regional Chamber",
+      "url": "https://www.dallaschamber.org/",
+      "category": "economic_development",
+      "geography": "Dallas region",
+      "authority": "institutional_announcement",
+      "signals": [
+        "expansion",
+        "new_location"
+      ],
+      "caution": "Identify the contractor/employer; the company opening a building may not employ the construction crew.",
+      "identity_verified": true,
+      "verification_url": "https://www.dallaschamber.org/",
+      "verification_note": "Curated organization identity and retrieved official/publisher page inspected.",
+      "checked_at": "2026-10-12T11:22:08.521176+00:00",
+      "direct_access": "retrieved",
+      "final_url": "https://www.dallaschamber.org/",
+      "access_mode": "selective_public_fetch",
+      "research_links": [
+        "https://about.att.com/category/all_news.html",
+        "https://www.dallaschamber.org/about/contact/",
+        "https://www.dallaschamber.org/careers/",
+        "https://www.dallaschamber.org/drc-news/",
+        "https://www.dallaschamber.org/news-resources/",
+        "https://www.dallaschamber.org/news-resources/#subscribe"
+      ]
+    },
+    {
+      "id": "fort_worth_edp",
+      "name": "Fort Worth Economic Development Partnership",
+      "url": "https://fortworthedp.com/",
+      "category": "economic_development",
+      "geography": "Fort Worth",
+      "authority": "institutional_announcement",
+      "signals": [
+        "expansion",
+        "new_location"
+      ],
+      "caution": "Planned investment does not establish an award, mobilization or apparel requirement.",
+      "identity_verified": true,
+      "verification_url": "https://fortworthedp.com/",
+      "verification_note": "Curated organization identity and retrieved official/publisher page inspected.",
+      "checked_at": "2026-10-12T11:22:09.902617+00:00",
+      "direct_access": "retrieved",
+      "final_url": "https://fortworthedp.com/",
+      "access_mode": "selective_public_fetch",
+      "research_links": [
+        "https://fortworthedp.com/contact/",
+        "https://fortworthedp.com/news/"
+      ]
+    },
+    {
+      "id": "kpost",
+      "name": "KPost Company official website",
+      "url": "https://kpostcompany.com/",
+      "category": "company",
+      "geography": "Dallas / Fort Worth, Texas",
+      "authority": "company_first_party",
+      "signals": [
+        "hiring",
+        "project_start",
+        "expansion"
+      ],
+      "caution": "Company self-report; verify each event, its timing and apparel relevance separately.",
+      "identity_verified": true,
+      "verification_url": "https://kpostcompany.com/",
+      "verification_note": "Curated organization identity and retrieved official/publisher page inspected.",
+      "checked_at": "2026-10-12T11:21:56.900187+00:00",
+      "direct_access": "retrieved",
+      "final_url": "https://kpostcompany.com/",
+      "access_mode": "selective_public_fetch",
+      "research_links": [
+        "https://kpostcompany.com/blog/",
+        "https://kpostcompany.com/careers/",
+        "https://kpostcompany.com/contact/"
+      ]
+    },
+    {
+      "id": "bakertriangle",
+      "name": "BakerTriangle official website",
+      "url": "https://bakertriangle.com/",
+      "category": "company",
+      "geography": "Texas; DFW projects",
+      "authority": "company_first_party",
+      "signals": [
+        "hiring",
+        "project_start",
+        "expansion"
+      ],
+      "caution": "Company self-report; verify each event, its timing and apparel relevance separately.",
+      "identity_verified": true,
+      "verification_url": "https://bakertriangle.com/",
+      "verification_note": "Company site opened through the research browser; direct robots request returned 403. LinkedIn identifies Mesquite and links back to the company domain.",
+      "checked_at": "2026-10-12T11:21:56.901196+00:00",
+      "direct_access": "robots_check_failed",
+      "final_url": "https://bakertriangle.com/",
+      "access_mode": "indexed_search_and_manual_review",
+      "research_links": []
+    },
+    {
+      "id": "polk",
+      "name": "Polk Mechanical Company official website",
+      "url": "https://www.polkmechanical.com/",
+      "category": "company",
+      "geography": "Grand Prairie, Texas",
+      "authority": "company_first_party",
+      "signals": [
+        "hiring",
+        "project_start",
+        "expansion"
+      ],
+      "caution": "Company self-report; verify each event, its timing and apparel relevance separately.",
+      "identity_verified": true,
+      "verification_url": "https://www.polkmechanical.com/",
+      "verification_note": "Curated organization identity and retrieved official/publisher page inspected.",
+      "checked_at": "2026-10-12T11:21:56.901196+00:00",
+      "direct_access": "retrieved",
+      "final_url": "https://www.polkmechanical.com/",
+      "access_mode": "selective_public_fetch",
+      "research_links": [
+        "https://careers-polkmechanical.icims.com/",
+        "https://www.polkmechanical.com/careers/",
+        "https://www.polkmechanical.com/contact/",
+        "https://www.polkmechanical.com/polk-nation-news/"
+      ]
+    },
+    {
+      "id": "rogers_obrien",
+      "name": "Rogers-O'Brien Construction official website",
+      "url": "https://r-o.com/",
+      "category": "company",
+      "geography": "Texas; Dallas / Fort Worth projects",
+      "authority": "company_first_party",
+      "signals": [
+        "hiring",
+        "project_start",
+        "expansion"
+      ],
+      "caution": "Company self-report; verify each event, its timing and apparel relevance separately.",
+      "identity_verified": true,
+      "verification_url": "https://r-o.com/",
+      "verification_note": "Curated organization identity and retrieved official/publisher page inspected.",
+      "checked_at": "2026-10-12T11:21:56.902242+00:00",
+      "direct_access": "retrieved",
+      "final_url": "https://r-o.com/",
+      "access_mode": "selective_public_fetch",
+      "research_links": [
+        "https://r-o.com/a-summer-on-the-jobsite-ro-construction-interns-share-their-advice-surprises-and-lessons-learned/",
+        "https://r-o.com/careers",
+        "https://r-o.com/careers/",
+        "https://r-o.com/careers/benefits/",
+        "https://r-o.com/careers/internships/",
+        "https://r-o.com/contact",
+        "https://r-o.com/contact-us",
+        "https://r-o.com/contact-us/",
+        "https://r-o.com/field-notes-bad-news-doesnt-age-well/",
+        "https://r-o.com/news/",
+        "https://r-o.com/news/events/",
+        "https://r-o.com/project-categories/academic/",
+        "https://r-o.com/project-categories/advanced-manufacturing-and-technology/",
+        "https://r-o.com/project-categories/civic/",
+        "https://r-o.com/project-categories/clinics/",
+        "https://r-o.com/project-categories/commercial-and-community/",
+        "https://r-o.com/project-categories/food-and-beverage/",
+        "https://r-o.com/project-categories/healthcare/",
+        "https://r-o.com/project-categories/higher-education/",
+        "https://r-o.com/project-categories/hospitality/",
+        "https://r-o.com/project-categories/hospitals/",
+        "https://r-o.com/project-categories/industrial_manufacturing/",
+        "https://r-o.com/project-categories/interiors/",
+        "https://r-o.com/project-categories/k-12/",
+        "https://r-o.com/project-categories/living/",
+        "https://r-o.com/project-categories/medical-office-buildings/",
+        "https://r-o.com/project-categories/mission-critical/",
+        "https://r-o.com/project-categories/multifamily/",
+        "https://r-o.com/project-categories/office/",
+        "https://r-o.com/project-categories/retail/",
+        "https://r-o.com/project-categories/science_and_technology/",
+        "https://r-o.com/project-categories/senior-living/",
+        "https://r-o.com/project-categories/worship/",
+        "https://r-o.com/projects",
+        "https://r-o.com/projects/"
+      ]
+    },
+    {
+      "id": "tdindustries",
+      "name": "TDIndustries official website",
+      "url": "https://www.tdindustries.com/",
+      "category": "company",
+      "geography": "Dallas, Texas",
+      "authority": "company_first_party",
+      "signals": [
+        "hiring",
+        "project_start",
+        "expansion"
+      ],
+      "caution": "Company self-report; verify each event, its timing and apparel relevance separately.",
+      "identity_verified": true,
+      "verification_url": "https://www.tdindustries.com/",
+      "verification_note": "Curated organization identity and retrieved official/publisher page inspected.",
+      "checked_at": "2026-10-12T11:21:58.467376+00:00",
+      "direct_access": "retrieved",
+      "final_url": "https://www.tdindustries.com/",
+      "access_mode": "selective_public_fetch",
+      "research_links": [
+        "https://www.tdindustries.com/blog",
+        "https://www.tdindustries.com/careers",
+        "https://www.tdindustries.com/contact-us",
+        "https://www.tdindustries.com/contact-us?hsLang=en",
+        "https://www.tdindustries.com/locations-licenses",
+        "https://www.tdindustries.com/locations-licenses?hsLang=en",
+        "https://www.tdindustries.com/news",
+        "https://www.tdindustries.com/projects",
+        "https://www.tdindustries.com/projects?hsLang=en"
+      ]
+    },
+    {
+      "id": "hill_wilkinson",
+      "name": "Hill & Wilkinson General Contractors official website",
+      "url": "https://hill-wilkinson.com/",
+      "category": "company",
+      "geography": "Richardson, Texas",
+      "authority": "company_first_party",
+      "signals": [
+        "hiring",
+        "project_start",
+        "expansion"
+      ],
+      "caution": "Company self-report; verify each event, its timing and apparel relevance separately.",
+      "identity_verified": true,
+      "verification_url": "https://hill-wilkinson.com/",
+      "verification_note": "Curated organization identity and retrieved official/publisher page inspected.",
+      "checked_at": "2026-10-12T11:21:58.618378+00:00",
+      "direct_access": "retrieved",
+      "final_url": "https://hwgc.com/",
+      "access_mode": "selective_public_fetch",
+      "research_links": [
+        "https://hwgc.com/careers/",
+        "https://hwgc.com/contact/",
+        "https://hwgc.com/expertise/special-projects/",
+        "https://hwgc.com/from-internship-to-career-the-beginning-of-a-hill-wilkinson-journey/",
+        "https://hwgc.com/news/",
+        "https://hwgc.com/portfolio/",
+        "https://hwgc.com/portfolio/cawley-parkwood-phase-2/",
+        "https://hwgc.com/portfolio/childrens-health-sleep-center/",
+        "https://hwgc.com/portfolio/childrens-health-transport-access-center-facility/",
+        "https://hwgc.com/portfolio/encore-wire-service-center/",
+        "https://hwgc.com/portfolio/grand-prairie-city-hall/",
+        "https://hwgc.com/portfolio/jj-pearce-high-school-addition-and-renovation/",
+        "https://hwgc.com/portfolio/micropac/",
+        "https://hwgc.com/portfolio/park-place-jaguar-austin/",
+        "https://hwgc.com/portfolio/shoreline-city-church/",
+        "https://hwgc.com/portfolio/statler-hotel-old-dallas-central-library/",
+        "https://hwgc.com/portfolio/texas-tech-university-education-research-and-technology-building-health-science-center-expansion/",
+        "https://hwgc.com/portfolio/the-campsite-at-shield-ranch/",
+        "https://hwgc.com/portfolio/ursuline-academy-of-dallas/"
+      ]
+    }
+  ],
+  "platforms": [
+    {
+      "id": "linkedin",
+      "name": "LinkedIn",
+      "domains": [
+        "linkedin.com"
+      ],
+      "kind": "social_and_jobs",
+      "access_mode": "indexed_search_and_manual_review",
+      "policy_url": "https://www.linkedin.com/legal/user-agreement",
+      "api_url": "https://learn.microsoft.com/en-us/linkedin/marketing/community-management/community-management-overview",
+      "notes": "Search public indexed company/posts/jobs pages. General automated profile/feed scraping is not the integration. Approved API products have permissions and use-case restrictions."
+    },
+    {
+      "id": "instagram",
+      "name": "Instagram",
+      "domains": [
+        "instagram.com"
+      ],
+      "kind": "social",
+      "access_mode": "indexed_search_and_manual_review",
+      "policy_url": "https://help.instagram.com/581066165581870",
+      "api_url": "https://developers.facebook.com/docs/instagram-platform/",
+      "notes": "Official API eligibility and permissions need account-specific verification. Indexed public posts are partial coverage; do not claim access to all posts or Stories."
+    },
+    {
+      "id": "x",
+      "name": "X",
+      "domains": [
+        "x.com",
+        "twitter.com"
+      ],
+      "kind": "social",
+      "access_mode": "indexed_search_optional_official_api",
+      "policy_url": "https://docs.x.com/x-api/getting-started/pricing",
+      "api_url": "https://docs.x.com/x-api/posts/search/introduction",
+      "notes": "Public indexed search initially. Official API requires developer credentials and a separately capped budget. Preserve original twitter.com URLs and normalize account identity to X."
+    },
+    {
+      "id": "indeed",
+      "name": "Indeed",
+      "domains": [
+        "indeed.com"
+      ],
+      "kind": "job_board",
+      "access_mode": "indexed_search_and_employer_corroboration",
+      "policy_url": "https://www.indeed.com/legal",
+      "api_url": "https://docs.indeed.com/",
+      "notes": "Discover indexed employer/job pages, then corroborate vacancies on the employer's linked careers/ATS site. Employer pages can be unclaimed. Never count advertised jobs as workers."
+    },
+    {
+      "id": "facebook",
+      "name": "Facebook",
+      "domains": [
+        "facebook.com"
+      ],
+      "kind": "social",
+      "access_mode": "indexed_search_and_manual_review",
+      "policy_url": "https://www.facebook.com/terms.php",
+      "api_url": "https://developers.facebook.com/docs/pages-api/",
+      "notes": "Prefer pages linked from the official company website. API access to Page content depends on permissions; indexed coverage is incomplete."
+    },
+    {
+      "id": "youtube",
+      "name": "YouTube",
+      "domains": [
+        "youtube.com",
+        "youtu.be"
+      ],
+      "kind": "video",
+      "access_mode": "indexed_search_optional_official_api",
+      "policy_url": "https://developers.google.com/youtube/terms/api-services-terms-of-service",
+      "api_url": "https://developers.google.com/youtube/v3/docs/search/list",
+      "notes": "Company channels and project announcements may aid research. Upload date is not necessarily the project date. No inference of headcount from people in a video."
+    },
+    {
+      "id": "tiktok",
+      "name": "TikTok",
+      "domains": [
+        "tiktok.com"
+      ],
+      "kind": "social",
+      "access_mode": "indexed_search_and_manual_review",
+      "policy_url": "https://developers.tiktok.com/",
+      "api_url": "https://developers.tiktok.com/",
+      "notes": "Retain official company links when present. No assumption of general commercial research API access."
+    }
+  ],
+  "company_profiles": [
+    {
+      "company_id": "kpost",
+      "platform": "x",
+      "url": "https://x.com/kpostdfw",
+      "original_url": "https://twitter.com/kpostdfw?lang=en",
+      "verification_status": "official_site_linked",
+      "evidence_url": "https://kpostcompany.com/",
+      "checked_at": "2026-10-12T11:21:56.900187+00:00",
+      "content_access": "not_directly_checked",
+      "note": "Company-specific outbound link inspected and approved. This verifies association, not current feed completeness or platform badge status."
+    },
+    {
+      "company_id": "kpost",
+      "platform": "facebook",
+      "url": "https://www.facebook.com/kpostcompany/",
+      "original_url": "https://www.facebook.com/KPostCompany/",
+      "verification_status": "official_site_linked",
+      "evidence_url": "https://kpostcompany.com/",
+      "checked_at": "2026-10-12T11:21:56.900187+00:00",
+      "content_access": "not_directly_checked",
+      "note": "Company-specific outbound link inspected and approved. This verifies association, not current feed completeness or platform badge status."
+    },
+    {
+      "company_id": "kpost",
+      "platform": "instagram",
+      "url": "https://www.instagram.com/kpostcompany/",
+      "original_url": "https://www.instagram.com/kpostcompany/",
+      "verification_status": "official_site_linked",
+      "evidence_url": "https://kpostcompany.com/",
+      "checked_at": "2026-10-12T11:21:56.900187+00:00",
+      "content_access": "not_directly_checked",
+      "note": "Company-specific outbound link inspected and approved. This verifies association, not current feed completeness or platform badge status."
+    },
+    {
+      "company_id": "kpost",
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/company/kpost-roofing-&-waterproofing",
+      "original_url": "https://www.linkedin.com/company/kpost-roofing-&-waterproofing",
+      "verification_status": "official_site_linked",
+      "evidence_url": "https://kpostcompany.com/",
+      "checked_at": "2026-10-12T11:21:56.900187+00:00",
+      "content_access": "not_directly_checked",
+      "note": "Company-specific outbound link inspected and approved. This verifies association, not current feed completeness or platform badge status."
+    },
+    {
+      "company_id": "kpost",
+      "platform": "youtube",
+      "url": "https://www.youtube.com/@kpostcompany",
+      "original_url": "https://www.youtube.com/@kpostcompany",
+      "verification_status": "official_site_linked",
+      "evidence_url": "https://kpostcompany.com/",
+      "checked_at": "2026-10-12T11:21:56.900187+00:00",
+      "content_access": "not_directly_checked",
+      "note": "Company-specific outbound link inspected and approved. This verifies association, not current feed completeness or platform badge status."
+    },
+    {
+      "company_id": "polk",
+      "platform": "x",
+      "url": "https://x.com/polkmechanical",
+      "original_url": "https://twitter.com/PolkMechanical",
+      "verification_status": "official_site_linked",
+      "evidence_url": "https://www.polkmechanical.com/",
+      "checked_at": "2026-10-12T11:21:56.901196+00:00",
+      "content_access": "not_directly_checked",
+      "note": "Company-specific outbound link inspected and approved. This verifies association, not current feed completeness or platform badge status."
+    },
+    {
+      "company_id": "polk",
+      "platform": "facebook",
+      "url": "https://www.facebook.com/polkmechanical/",
+      "original_url": "https://www.facebook.com/PolkMechanical",
+      "verification_status": "official_site_linked",
+      "evidence_url": "https://www.polkmechanical.com/",
+      "checked_at": "2026-10-12T11:21:56.901196+00:00",
+      "content_access": "not_directly_checked",
+      "note": "Company-specific outbound link inspected and approved. This verifies association, not current feed completeness or platform badge status."
+    },
+    {
+      "company_id": "polk",
+      "platform": "instagram",
+      "url": "https://www.instagram.com/polk_mechanical/",
+      "original_url": "https://www.instagram.com/polk_mechanical/",
+      "verification_status": "official_site_linked",
+      "evidence_url": "https://www.polkmechanical.com/",
+      "checked_at": "2026-10-12T11:21:56.901196+00:00",
+      "content_access": "not_directly_checked",
+      "note": "Company-specific outbound link inspected and approved. This verifies association, not current feed completeness or platform badge status."
+    },
+    {
+      "company_id": "polk",
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/company/polk-mechanical",
+      "original_url": "https://www.linkedin.com/company/polk-mechanical?original_referer=https%3A%2F%2Fwww.polkmechanical.com%2F",
+      "verification_status": "official_site_linked",
+      "evidence_url": "https://www.polkmechanical.com/",
+      "checked_at": "2026-10-12T11:21:56.901196+00:00",
+      "content_access": "not_directly_checked",
+      "note": "Company-specific outbound link inspected and approved. This verifies association, not current feed completeness or platform badge status."
+    },
+    {
+      "company_id": "polk",
+      "platform": "youtube",
+      "url": "https://www.youtube.com/channel/UC9l0ySzRekNt0ATgNzR6ehw",
+      "original_url": "https://www.youtube.com/channel/UC9l0ySzRekNt0ATgNzR6ehw",
+      "verification_status": "official_site_linked",
+      "evidence_url": "https://www.polkmechanical.com/",
+      "checked_at": "2026-10-12T11:21:56.901196+00:00",
+      "content_access": "not_directly_checked",
+      "note": "Company-specific outbound link inspected and approved. This verifies association, not current feed completeness or platform badge status."
+    },
+    {
+      "company_id": "rogers_obrien",
+      "platform": "facebook",
+      "url": "https://www.facebook.com/rogersobrien/",
+      "original_url": "https://www.facebook.com/rogersobrien",
+      "verification_status": "official_site_linked",
+      "evidence_url": "https://r-o.com/",
+      "checked_at": "2026-10-12T11:21:56.902242+00:00",
+      "content_access": "not_directly_checked",
+      "note": "Company-specific outbound link inspected and approved. This verifies association, not current feed completeness or platform badge status."
+    },
+    {
+      "company_id": "rogers_obrien",
+      "platform": "instagram",
+      "url": "https://www.instagram.com/rogersobrien/",
+      "original_url": "https://www.instagram.com/rogersobrien",
+      "verification_status": "official_site_linked",
+      "evidence_url": "https://r-o.com/",
+      "checked_at": "2026-10-12T11:21:56.902242+00:00",
+      "content_access": "not_directly_checked",
+      "note": "Company-specific outbound link inspected and approved. This verifies association, not current feed completeness or platform badge status."
+    },
+    {
+      "company_id": "rogers_obrien",
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/company/121475",
+      "original_url": "https://www.linkedin.com/company/121475",
+      "verification_status": "official_site_linked",
+      "evidence_url": "https://r-o.com/",
+      "checked_at": "2026-10-12T11:21:56.902242+00:00",
+      "content_access": "not_directly_checked",
+      "note": "Company-specific outbound link inspected and approved. This verifies association, not current feed completeness or platform badge status."
+    },
+    {
+      "company_id": "rogers_obrien",
+      "platform": "youtube",
+      "url": "https://www.youtube.com/user/RogersOBrien",
+      "original_url": "https://www.youtube.com/user/RogersOBrien",
+      "verification_status": "official_site_linked",
+      "evidence_url": "https://r-o.com/",
+      "checked_at": "2026-10-12T11:21:56.902242+00:00",
+      "content_access": "not_directly_checked",
+      "note": "Company-specific outbound link inspected and approved. This verifies association, not current feed completeness or platform badge status."
+    },
+    {
+      "company_id": "tdindustries",
+      "platform": "facebook",
+      "url": "https://www.facebook.com/tdindustriesinc/",
+      "original_url": "https://www.facebook.com/TDIndustriesInc/",
+      "verification_status": "official_site_linked",
+      "evidence_url": "https://www.tdindustries.com/",
+      "checked_at": "2026-10-12T11:21:58.467376+00:00",
+      "content_access": "not_directly_checked",
+      "note": "Company-specific outbound link inspected and approved. This verifies association, not current feed completeness or platform badge status."
+    },
+    {
+      "company_id": "tdindustries",
+      "platform": "instagram",
+      "url": "https://www.instagram.com/tdindustries/",
+      "original_url": "https://www.instagram.com/tdindustries/",
+      "verification_status": "official_site_linked",
+      "evidence_url": "https://www.tdindustries.com/",
+      "checked_at": "2026-10-12T11:21:58.467376+00:00",
+      "content_access": "not_directly_checked",
+      "note": "Company-specific outbound link inspected and approved. This verifies association, not current feed completeness or platform badge status."
+    },
+    {
+      "company_id": "tdindustries",
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/company/tdindustries",
+      "original_url": "https://www.linkedin.com/company/tdindustries/",
+      "verification_status": "official_site_linked",
+      "evidence_url": "https://www.tdindustries.com/",
+      "checked_at": "2026-10-12T11:21:58.467376+00:00",
+      "content_access": "not_directly_checked",
+      "note": "Company-specific outbound link inspected and approved. This verifies association, not current feed completeness or platform badge status."
+    },
+    {
+      "company_id": "tdindustries",
+      "platform": "youtube",
+      "url": "https://www.youtube.com/user/TDIndustriesChannel",
+      "original_url": "https://www.youtube.com/user/TDIndustriesChannel",
+      "verification_status": "official_site_linked",
+      "evidence_url": "https://www.tdindustries.com/",
+      "checked_at": "2026-10-12T11:21:58.467376+00:00",
+      "content_access": "not_directly_checked",
+      "note": "Company-specific outbound link inspected and approved. This verifies association, not current feed completeness or platform badge status."
+    },
+    {
+      "company_id": "hill_wilkinson",
+      "platform": "facebook",
+      "url": "https://www.facebook.com/hillwilkinson/",
+      "original_url": "https://www.facebook.com/HillWilkinson/",
+      "verification_status": "official_site_linked",
+      "evidence_url": "https://hwgc.com/",
+      "checked_at": "2026-10-12T11:21:58.618378+00:00",
+      "content_access": "not_directly_checked",
+      "note": "Company-specific outbound link inspected and approved. This verifies association, not current feed completeness or platform badge status."
+    },
+    {
+      "company_id": "hill_wilkinson",
+      "platform": "instagram",
+      "url": "https://www.instagram.com/hillwilkinson/",
+      "original_url": "https://www.instagram.com/hillwilkinson/",
+      "verification_status": "official_site_linked",
+      "evidence_url": "https://hwgc.com/",
+      "checked_at": "2026-10-12T11:21:58.618378+00:00",
+      "content_access": "not_directly_checked",
+      "note": "Company-specific outbound link inspected and approved. This verifies association, not current feed completeness or platform badge status."
+    },
+    {
+      "company_id": "hill_wilkinson",
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/company/hill-wilkinson",
+      "original_url": "https://www.linkedin.com/company/hill-wilkinson/",
+      "verification_status": "official_site_linked",
+      "evidence_url": "https://hwgc.com/",
+      "checked_at": "2026-10-12T11:21:58.618378+00:00",
+      "content_access": "not_directly_checked",
+      "note": "Company-specific outbound link inspected and approved. This verifies association, not current feed completeness or platform badge status."
+    },
+    {
+      "company_id": "bakertriangle",
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/company/baker-triangle",
+      "verification_status": "corroborated_identity",
+      "evidence_url": "https://www.linkedin.com/company/baker-triangle",
+      "note": "Indexed company page matches the construction business and Mesquite location and links to bakertriangle.com. Official-site outbound link was not retrieved.",
+      "original_url": "https://www.linkedin.com/company/baker-triangle",
+      "checked_at": "2026-10-12",
+      "content_access": "public_index_observed"
+    },
+    {
+      "company_id": "kpost",
+      "platform": "indeed",
+      "url": "https://www.indeed.com/cmp/kpost-company",
+      "verification_status": "candidate",
+      "evidence_url": "https://www.indeed.com/cmp/Kpost-Company",
+      "note": "Indexed employer page names KPost and Dallas but is unclaimed. Not a verified company-controlled account.",
+      "original_url": "https://www.indeed.com/cmp/Kpost-Company",
+      "checked_at": "2026-10-12",
+      "content_access": "public_index_observed"
+    },
+    {
+      "company_id": "bakertriangle",
+      "platform": "indeed",
+      "url": "https://www.indeed.com/cmp/bakertriangle",
+      "verification_status": "candidate",
+      "evidence_url": "https://www.indeed.com/cmp/Bakertriangle",
+      "note": "Matching employer name and Fort Worth job; ownership is not verified.",
+      "original_url": "https://www.indeed.com/cmp/Bakertriangle",
+      "checked_at": "2026-10-12",
+      "content_access": "public_index_observed"
+    },
+    {
+      "company_id": "polk",
+      "platform": "indeed",
+      "url": "https://www.indeed.com/cmp/polk-mechanical-company",
+      "verification_status": "candidate",
+      "evidence_url": "https://www.indeed.com/cmp/Polk-Mechanical-Company/jobs",
+      "note": "Matching employer name and Grand Prairie jobs. Corroborate individual vacancies on the official linked careers portal.",
+      "original_url": "https://www.indeed.com/cmp/Polk-Mechanical-Company",
+      "checked_at": "2026-10-12",
+      "content_access": "public_index_observed"
+    },
+    {
+      "company_id": "rogers_obrien",
+      "platform": "indeed",
+      "url": "https://www.indeed.com/cmp/rogers--o%27brien-construction",
+      "verification_status": "candidate",
+      "evidence_url": "https://www.indeed.com/cmp/Rogers--o%27brien-Construction",
+      "note": "Matching company and Dallas location; employer page is unclaimed.",
+      "original_url": "https://www.indeed.com/cmp/Rogers--o%27brien-Construction",
+      "checked_at": "2026-10-12",
+      "content_access": "public_index_observed"
+    },
+    {
+      "company_id": "tdindustries",
+      "platform": "indeed",
+      "url": "https://www.indeed.com/cmp/tdindustries",
+      "verification_status": "candidate",
+      "evidence_url": "https://www.indeed.com/cmp/Tdindustries?campaignid=mobvjcmp&fromjk=1c4426aff5f66653",
+      "note": "Matching employer with Dallas and Fort Worth jobs among jobs in other markets. Ownership not independently verified.",
+      "original_url": "https://www.indeed.com/cmp/Tdindustries",
+      "checked_at": "2026-10-12",
+      "content_access": "public_index_observed"
+    },
+    {
+      "company_id": "hill_wilkinson",
+      "platform": "indeed",
+      "url": "https://www.indeed.com/cmp/hill-%26-wilkinson-general-contractors",
+      "verification_status": "candidate",
+      "evidence_url": "https://www.indeed.com/cmp/Hill-%26-Wilkinson-General-Contractors?campaignid=mobvjcmp&fromjk=cb62a75a3abef39d",
+      "note": "Matching business and Richardson location, but employer page is unclaimed. Other similar Indeed pages remain unresolved aliases.",
+      "original_url": "https://www.indeed.com/cmp/Hill-%26-Wilkinson-General-Contractors",
+      "checked_at": "2026-10-12",
+      "content_access": "public_index_observed"
+    }
+  ],
+  "company_surfaces": [
+    {
+      "company_id": "kpost",
+      "platform": "linkedin",
+      "profile_count": 1,
+      "ownership_status": "verified_association",
+      "search_status": "matches_returned",
+      "last_searched": "2026-10-12",
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "kpost",
+      "platform": "instagram",
+      "profile_count": 1,
+      "ownership_status": "verified_association",
+      "search_status": "no_relevant_results_returned",
+      "last_searched": "2026-10-12",
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "kpost",
+      "platform": "x",
+      "profile_count": 1,
+      "ownership_status": "verified_association",
+      "search_status": "no_relevant_results_returned",
+      "last_searched": "2026-10-12",
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "kpost",
+      "platform": "indeed",
+      "profile_count": 1,
+      "ownership_status": "candidate",
+      "search_status": "matches_returned",
+      "last_searched": "2026-10-12",
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "kpost",
+      "platform": "facebook",
+      "profile_count": 1,
+      "ownership_status": "verified_association",
+      "search_status": "not_searched",
+      "last_searched": null,
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "kpost",
+      "platform": "youtube",
+      "profile_count": 1,
+      "ownership_status": "verified_association",
+      "search_status": "not_searched",
+      "last_searched": null,
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "kpost",
+      "platform": "tiktok",
+      "profile_count": 0,
+      "ownership_status": "not_established",
+      "search_status": "not_searched",
+      "last_searched": null,
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "bakertriangle",
+      "platform": "linkedin",
+      "profile_count": 1,
+      "ownership_status": "verified_association",
+      "search_status": "matches_returned",
+      "last_searched": "2026-10-12",
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "bakertriangle",
+      "platform": "instagram",
+      "profile_count": 0,
+      "ownership_status": "not_established",
+      "search_status": "no_relevant_results_returned",
+      "last_searched": "2026-10-12",
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "bakertriangle",
+      "platform": "x",
+      "profile_count": 0,
+      "ownership_status": "not_established",
+      "search_status": "no_relevant_results_returned",
+      "last_searched": "2026-10-12",
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "bakertriangle",
+      "platform": "indeed",
+      "profile_count": 1,
+      "ownership_status": "candidate",
+      "search_status": "matches_returned",
+      "last_searched": "2026-10-12",
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "bakertriangle",
+      "platform": "facebook",
+      "profile_count": 0,
+      "ownership_status": "not_established",
+      "search_status": "not_searched",
+      "last_searched": null,
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "bakertriangle",
+      "platform": "youtube",
+      "profile_count": 0,
+      "ownership_status": "not_established",
+      "search_status": "not_searched",
+      "last_searched": null,
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "bakertriangle",
+      "platform": "tiktok",
+      "profile_count": 0,
+      "ownership_status": "not_established",
+      "search_status": "not_searched",
+      "last_searched": null,
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "polk",
+      "platform": "linkedin",
+      "profile_count": 1,
+      "ownership_status": "verified_association",
+      "search_status": "matches_returned",
+      "last_searched": "2026-10-12",
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "polk",
+      "platform": "instagram",
+      "profile_count": 1,
+      "ownership_status": "verified_association",
+      "search_status": "no_relevant_results_returned",
+      "last_searched": "2026-10-12",
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "polk",
+      "platform": "x",
+      "profile_count": 1,
+      "ownership_status": "verified_association",
+      "search_status": "no_relevant_results_returned",
+      "last_searched": "2026-10-12",
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "polk",
+      "platform": "indeed",
+      "profile_count": 1,
+      "ownership_status": "candidate",
+      "search_status": "matches_returned",
+      "last_searched": "2026-10-12",
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "polk",
+      "platform": "facebook",
+      "profile_count": 1,
+      "ownership_status": "verified_association",
+      "search_status": "not_searched",
+      "last_searched": null,
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "polk",
+      "platform": "youtube",
+      "profile_count": 1,
+      "ownership_status": "verified_association",
+      "search_status": "not_searched",
+      "last_searched": null,
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "polk",
+      "platform": "tiktok",
+      "profile_count": 0,
+      "ownership_status": "not_established",
+      "search_status": "not_searched",
+      "last_searched": null,
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "rogers_obrien",
+      "platform": "linkedin",
+      "profile_count": 1,
+      "ownership_status": "verified_association",
+      "search_status": "matches_returned",
+      "last_searched": "2026-10-12",
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "rogers_obrien",
+      "platform": "instagram",
+      "profile_count": 1,
+      "ownership_status": "verified_association",
+      "search_status": "no_relevant_results_returned",
+      "last_searched": "2026-10-12",
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "rogers_obrien",
+      "platform": "x",
+      "profile_count": 0,
+      "ownership_status": "not_established",
+      "search_status": "no_relevant_results_returned",
+      "last_searched": "2026-10-12",
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "rogers_obrien",
+      "platform": "indeed",
+      "profile_count": 1,
+      "ownership_status": "candidate",
+      "search_status": "matches_returned",
+      "last_searched": "2026-10-12",
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "rogers_obrien",
+      "platform": "facebook",
+      "profile_count": 1,
+      "ownership_status": "verified_association",
+      "search_status": "not_searched",
+      "last_searched": null,
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "rogers_obrien",
+      "platform": "youtube",
+      "profile_count": 1,
+      "ownership_status": "verified_association",
+      "search_status": "not_searched",
+      "last_searched": null,
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "rogers_obrien",
+      "platform": "tiktok",
+      "profile_count": 0,
+      "ownership_status": "not_established",
+      "search_status": "not_searched",
+      "last_searched": null,
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "tdindustries",
+      "platform": "linkedin",
+      "profile_count": 1,
+      "ownership_status": "verified_association",
+      "search_status": "no_relevant_results_returned",
+      "last_searched": "2026-10-12",
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "tdindustries",
+      "platform": "instagram",
+      "profile_count": 1,
+      "ownership_status": "verified_association",
+      "search_status": "no_relevant_results_returned",
+      "last_searched": "2026-10-12",
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "tdindustries",
+      "platform": "x",
+      "profile_count": 0,
+      "ownership_status": "not_established",
+      "search_status": "no_relevant_results_returned",
+      "last_searched": "2026-10-12",
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "tdindustries",
+      "platform": "indeed",
+      "profile_count": 1,
+      "ownership_status": "candidate",
+      "search_status": "matches_returned",
+      "last_searched": "2026-10-12",
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "tdindustries",
+      "platform": "facebook",
+      "profile_count": 1,
+      "ownership_status": "verified_association",
+      "search_status": "not_searched",
+      "last_searched": null,
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "tdindustries",
+      "platform": "youtube",
+      "profile_count": 1,
+      "ownership_status": "verified_association",
+      "search_status": "not_searched",
+      "last_searched": null,
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "tdindustries",
+      "platform": "tiktok",
+      "profile_count": 0,
+      "ownership_status": "not_established",
+      "search_status": "not_searched",
+      "last_searched": null,
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "hill_wilkinson",
+      "platform": "linkedin",
+      "profile_count": 1,
+      "ownership_status": "verified_association",
+      "search_status": "matches_returned",
+      "last_searched": "2026-10-12",
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "hill_wilkinson",
+      "platform": "instagram",
+      "profile_count": 1,
+      "ownership_status": "verified_association",
+      "search_status": "no_relevant_results_returned",
+      "last_searched": "2026-10-12",
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "hill_wilkinson",
+      "platform": "x",
+      "profile_count": 0,
+      "ownership_status": "not_established",
+      "search_status": "no_relevant_results_returned",
+      "last_searched": "2026-10-12",
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "hill_wilkinson",
+      "platform": "indeed",
+      "profile_count": 1,
+      "ownership_status": "candidate",
+      "search_status": "matches_returned",
+      "last_searched": "2026-10-12",
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "hill_wilkinson",
+      "platform": "facebook",
+      "profile_count": 1,
+      "ownership_status": "verified_association",
+      "search_status": "not_searched",
+      "last_searched": null,
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "hill_wilkinson",
+      "platform": "youtube",
+      "profile_count": 0,
+      "ownership_status": "not_established",
+      "search_status": "not_searched",
+      "last_searched": null,
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    },
+    {
+      "company_id": "hill_wilkinson",
+      "platform": "tiktok",
+      "profile_count": 0,
+      "ownership_status": "not_established",
+      "search_status": "not_searched",
+      "last_searched": null,
+      "monitoring_state": "not_scheduled",
+      "coverage": "partial_public_index"
+    }
+  ],
+  "source_checks": [
+    {
+      "id": "kpost",
+      "url": "https://kpostcompany.com/",
+      "checked_at": "2026-10-12T11:21:56.900187+00:00",
+      "social_links": [
+        "https://twitter.com/kpostdfw?lang=en",
+        "https://www.facebook.com/KPostCompany/",
+        "https://www.instagram.com/kpostcompany/",
+        "https://www.linkedin.com/company/kpost-roofing-&-waterproofing",
+        "https://www.youtube.com/@kpostcompany"
+      ],
+      "research_links": [
+        "https://kpostcompany.com/blog/",
+        "https://kpostcompany.com/careers/",
+        "https://kpostcompany.com/contact/"
+      ],
+      "robots_url": "https://kpostcompany.com/robots.txt",
+      "robots_status": "allowed",
+      "http_status": 200,
+      "final_url": "https://kpostcompany.com/",
+      "content_type": "text/html; charset=UTF-8",
+      "title": "Roofing Contractor in Dallas, TX | KPost Roofing & Waterproofing",
+      "content_sha256": "d757b542848216ffb6936b235e880014264055465aea0fddb06e00099a1f43bf",
+      "access_status": "retrieved"
+    },
+    {
+      "id": "bakertriangle",
+      "url": "https://bakertriangle.com/",
+      "checked_at": "2026-10-12T11:21:56.901196+00:00",
+      "social_links": [],
+      "research_links": [],
+      "robots_url": "https://bakertriangle.com/robots.txt",
+      "robots_status": "unavailable",
+      "access_status": "robots_check_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "polk",
+      "url": "https://www.polkmechanical.com/",
+      "checked_at": "2026-10-12T11:21:56.901196+00:00",
+      "social_links": [
+        "https://twitter.com/PolkMechanical",
+        "https://www.facebook.com/PolkMechanical",
+        "https://www.facebook.com/buildtexasproud/",
+        "https://www.instagram.com/polk_mechanical/",
+        "https://www.linkedin.com/company/polk-mechanical?original_referer=https%3A%2F%2Fwww.polkmechanical.com%2F",
+        "https://www.youtube.com/channel/UC9l0ySzRekNt0ATgNzR6ehw"
+      ],
+      "research_links": [
+        "https://careers-polkmechanical.icims.com/",
+        "https://www.polkmechanical.com/careers/",
+        "https://www.polkmechanical.com/contact/",
+        "https://www.polkmechanical.com/polk-nation-news/"
+      ],
+      "robots_url": "https://www.polkmechanical.com/robots.txt",
+      "robots_status": "allowed",
+      "http_status": 200,
+      "final_url": "https://www.polkmechanical.com/",
+      "content_type": "text/html; charset=UTF-8",
+      "title": "Polk Mechanical Company | Construction Company in TexasPOLK Mechanical | From build to service, we deliver mechanical solutions that perform—backed by a team committed to partnership, reliability, and doing the job right.",
+      "content_sha256": "6969f8136e52be8107a9b694fac2770bbc6ef646822610a3c683784c52be95af",
+      "access_status": "retrieved"
+    },
+    {
+      "id": "rogers_obrien",
+      "url": "https://r-o.com/",
+      "checked_at": "2026-10-12T11:21:56.902242+00:00",
+      "social_links": [
+        "https://www.facebook.com/rogersobrien",
+        "https://www.instagram.com/rogersobrien",
+        "https://www.linkedin.com/company/121475",
+        "https://www.youtube.com/user/RogersOBrien"
+      ],
+      "research_links": [
+        "https://r-o.com/a-summer-on-the-jobsite-ro-construction-interns-share-their-advice-surprises-and-lessons-learned/",
+        "https://r-o.com/careers",
+        "https://r-o.com/careers/",
+        "https://r-o.com/careers/benefits/",
+        "https://r-o.com/careers/internships/",
+        "https://r-o.com/contact",
+        "https://r-o.com/contact-us",
+        "https://r-o.com/contact-us/",
+        "https://r-o.com/field-notes-bad-news-doesnt-age-well/",
+        "https://r-o.com/news/",
+        "https://r-o.com/news/events/",
+        "https://r-o.com/project-categories/academic/",
+        "https://r-o.com/project-categories/advanced-manufacturing-and-technology/",
+        "https://r-o.com/project-categories/civic/",
+        "https://r-o.com/project-categories/clinics/",
+        "https://r-o.com/project-categories/commercial-and-community/",
+        "https://r-o.com/project-categories/food-and-beverage/",
+        "https://r-o.com/project-categories/healthcare/",
+        "https://r-o.com/project-categories/higher-education/",
+        "https://r-o.com/project-categories/hospitality/",
+        "https://r-o.com/project-categories/hospitals/",
+        "https://r-o.com/project-categories/industrial_manufacturing/",
+        "https://r-o.com/project-categories/interiors/",
+        "https://r-o.com/project-categories/k-12/",
+        "https://r-o.com/project-categories/living/",
+        "https://r-o.com/project-categories/medical-office-buildings/",
+        "https://r-o.com/project-categories/mission-critical/",
+        "https://r-o.com/project-categories/multifamily/",
+        "https://r-o.com/project-categories/office/",
+        "https://r-o.com/project-categories/retail/",
+        "https://r-o.com/project-categories/science_and_technology/",
+        "https://r-o.com/project-categories/senior-living/",
+        "https://r-o.com/project-categories/worship/",
+        "https://r-o.com/projects",
+        "https://r-o.com/projects/"
+      ],
+      "robots_url": "https://r-o.com/robots.txt",
+      "robots_status": "allowed",
+      "http_status": 200,
+      "final_url": "https://r-o.com/",
+      "content_type": "text/html; charset=UTF-8",
+      "title": "",
+      "content_sha256": "25f6234e2ea80c994017f88ebab7e9f3bab07c160f52bb12c80d8f74a484f8dc",
+      "access_status": "retrieved"
+    },
+    {
+      "id": "tdindustries",
+      "url": "https://www.tdindustries.com/",
+      "checked_at": "2026-10-12T11:21:58.467376+00:00",
+      "social_links": [
+        "https://www.facebook.com/TDIndustriesInc/",
+        "https://www.instagram.com/tdindustries/",
+        "https://www.linkedin.com/company/tdindustries/",
+        "https://www.youtube.com/user/TDIndustriesChannel"
+      ],
+      "research_links": [
+        "https://www.tdindustries.com/blog",
+        "https://www.tdindustries.com/careers",
+        "https://www.tdindustries.com/contact-us",
+        "https://www.tdindustries.com/contact-us?hsLang=en",
+        "https://www.tdindustries.com/locations-licenses",
+        "https://www.tdindustries.com/locations-licenses?hsLang=en",
+        "https://www.tdindustries.com/news",
+        "https://www.tdindustries.com/projects",
+        "https://www.tdindustries.com/projects?hsLang=en"
+      ],
+      "robots_url": "https://www.tdindustries.com/robots.txt",
+      "robots_status": "allowed",
+      "http_status": 200,
+      "final_url": "https://www.tdindustries.com/",
+      "content_type": "text/html; charset=UTF-8",
+      "title": "TDIndustries | Mechanical Construction and Facility Services",
+      "content_sha256": "9b6ab9d85e0017050ffb7ba0e5173702ade905537c23e8e95453444fde950ce2",
+      "access_status": "retrieved"
+    },
+    {
+      "id": "hill_wilkinson",
+      "url": "https://hill-wilkinson.com/",
+      "checked_at": "2026-10-12T11:21:58.618378+00:00",
+      "social_links": [
+        "https://www.facebook.com/HillWilkinson/",
+        "https://www.instagram.com/hillwilkinson/",
+        "https://www.linkedin.com/company/hill-wilkinson/",
+        "https://youtu.be/kQUsbxbXnuU?si=YYvjlVdmlLyJBVzO"
+      ],
+      "research_links": [
+        "https://hwgc.com/careers/",
+        "https://hwgc.com/contact/",
+        "https://hwgc.com/expertise/special-projects/",
+        "https://hwgc.com/from-internship-to-career-the-beginning-of-a-hill-wilkinson-journey/",
+        "https://hwgc.com/news/",
+        "https://hwgc.com/portfolio/",
+        "https://hwgc.com/portfolio/cawley-parkwood-phase-2/",
+        "https://hwgc.com/portfolio/childrens-health-sleep-center/",
+        "https://hwgc.com/portfolio/childrens-health-transport-access-center-facility/",
+        "https://hwgc.com/portfolio/encore-wire-service-center/",
+        "https://hwgc.com/portfolio/grand-prairie-city-hall/",
+        "https://hwgc.com/portfolio/jj-pearce-high-school-addition-and-renovation/",
+        "https://hwgc.com/portfolio/micropac/",
+        "https://hwgc.com/portfolio/park-place-jaguar-austin/",
+        "https://hwgc.com/portfolio/shoreline-city-church/",
+        "https://hwgc.com/portfolio/statler-hotel-old-dallas-central-library/",
+        "https://hwgc.com/portfolio/texas-tech-university-education-research-and-technology-building-health-science-center-expansion/",
+        "https://hwgc.com/portfolio/the-campsite-at-shield-ranch/",
+        "https://hwgc.com/portfolio/ursuline-academy-of-dallas/"
+      ],
+      "robots_url": "https://hill-wilkinson.com/robots.txt",
+      "robots_status": "allowed",
+      "http_status": 200,
+      "final_url": "https://hwgc.com/",
+      "content_type": "text/html; charset=UTF-8",
+      "title": "Hill & Wilkinson General Contractors",
+      "content_sha256": "fd0307cc8e5dd7765e3029ee6c9e95a70ddb42809984a59379c804d21a386181",
+      "access_status": "retrieved"
+    },
+    {
+      "id": "dallas_council",
+      "url": "https://dallascityhall.com/government/citysecretary/Pages/cMeetings.aspx",
+      "checked_at": "2026-10-12T11:21:59.541400+00:00",
+      "social_links": [],
+      "research_links": [],
+      "robots_url": "https://dallascityhall.com/robots.txt",
+      "access_status": "unavailable",
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "id": "fort_worth_bids",
+      "url": "https://www.fortworthtexas.gov/departments/finance/bids",
+      "checked_at": "2026-10-12T11:21:59.629580+00:00",
+      "social_links": [],
+      "research_links": [],
+      "robots_url": "https://www.fortworthtexas.gov/robots.txt",
+      "robots_status": "allowed",
+      "access_status": "unavailable",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "fort_worth_records",
+      "url": "https://publicdocuments.fortworthtexas.gov/",
+      "checked_at": "2026-10-12T11:22:00.972588+00:00",
+      "social_links": [],
+      "research_links": [],
+      "robots_url": "https://publicdocuments.fortworthtexas.gov/robots.txt",
+      "access_status": "unavailable",
+      "error": "<urlopen error timed out>"
+    },
+    {
+      "id": "txdot",
+      "url": "https://www.txdot.gov/business/road-bridge-maintenance/contract-letting.html",
+      "checked_at": "2026-10-12T11:27:18.979372+00:00",
+      "social_links": [
+        "https://twitter.com/TxDOT",
+        "https://www.facebook.com/TxDOT",
+        "https://www.instagram.com/txdot/?hl=en",
+        "https://www.linkedin.com/company/texas-department-of-transportation",
+        "https://www.youtube.com/user/TxDOTpio",
+        "https://www.youtube.com/watch?v=U-LjeinLkc8"
+      ],
+      "research_links": [
+        "https://tableau.txdot.gov/views/AwardedorRejectedProjects/AwardedContracts?:embed=y",
+        "https://tableau.txdot.gov/views/CanceledorChangedProjects/CanceledorChangedProjects?:embed=y",
+        "https://tableau.txdot.gov/views/DBEGoals-ExternalWebsite/DBEGoals-UpcomingProjects?%3Aembed=y",
+        "https://tableau.txdot.gov/views/ProjectInformationDashboard/NoticetoContractors",
+        "https://tableau.txdot.gov/views/ProjectInformationDashboard/NoticetoContractors?%3Aembed=y&%3B%3AshowAppBanner=false&%3B%3Adisplay_count=n&%3B%3AshowVizHome=n",
+        "https://www.txdot.gov/about/careers.html",
+        "https://www.txdot.gov/about/contact-us.html",
+        "https://www.txdot.gov/about/contact-us/compact-with-texans.html",
+        "https://www.txdot.gov/about/contact-us/report-an-issue.html",
+        "https://www.txdot.gov/about/contact-us/report-fraud.html",
+        "https://www.txdot.gov/about/contact-us/submit-an-open-records-request.html",
+        "https://www.txdot.gov/about/newsroom.html",
+        "https://www.txdot.gov/about/newsroom/media-contacts.html",
+        "https://www.txdot.gov/business/road-bridge-maintenance/contract-letting/project-addenda-information.html",
+        "https://www.txdot.gov/business/road-bridge-maintenance/contract-letting/project-letting-dashboards.html",
+        "https://www.txdot.gov/data-maps/maritime-divisions-project-dashboards.html",
+        "https://www.txdot.gov/projects.html",
+        "https://www.txdot.gov/projects/hearings-meetings.html",
+        "https://www.txdot.gov/projects/planning.html",
+        "https://www.txdot.gov/projects/project-tracker.html",
+        "https://www.txdot.gov/projects/projects-studies.html",
+        "https://www.txdot.gov/projects/research-projects.html"
+      ],
+      "robots_url": "https://www.txdot.gov/robots.txt",
+      "robots_status": "not_found",
+      "http_status": 200,
+      "final_url": "https://www.txdot.gov/business/road-bridge-maintenance/contract-letting.html",
+      "content_type": "text/html;charset=utf-8",
+      "title": "Contract letting",
+      "content_sha256": "d23e49a83b275019d2a9842653a78a18243804626b0c5f45f91b2ac75edbe04f",
+      "access_status": "retrieved"
+    },
+    {
+      "id": "sam",
+      "url": "https://sam.gov/",
+      "checked_at": "2026-10-12T11:22:01.941643+00:00",
+      "social_links": [],
+      "research_links": [
+        "https://sam.gov/about/contact"
+      ],
+      "robots_url": "https://sam.gov/robots.txt",
+      "robots_status": "allowed",
+      "http_status": 200,
+      "final_url": "https://sam.gov/",
+      "content_type": "text/html; charset=UTF-8",
+      "title": "Home | SAM.gov",
+      "content_sha256": "02a8906d5de4c5d119c653ff3abe75888f9d73083408ff4b3ba08fe7cd847893",
+      "access_status": "retrieved"
+    },
+    {
+      "id": "usaspending",
+      "url": "https://www.usaspending.gov/",
+      "checked_at": "2026-10-12T11:22:03.588645+00:00",
+      "social_links": [],
+      "research_links": [],
+      "robots_url": "https://www.usaspending.gov/robots.txt",
+      "robots_status": "allowed",
+      "http_status": 200,
+      "final_url": "https://www.usaspending.gov/",
+      "content_type": "text/html",
+      "title": "USAspending.gov",
+      "content_sha256": "ab01672cb893bc8f870dc69246e16c89bab060c9019196dcf632f729738143f8",
+      "access_status": "retrieved"
+    },
+    {
+      "id": "construction_dive",
+      "url": "https://www.constructiondive.com/",
+      "checked_at": "2026-10-12T11:22:03.713053+00:00",
+      "social_links": [
+        "https://twitter.com/constructdive",
+        "https://www.facebook.com/ConstructionDive/",
+        "https://www.linkedin.com/company/construction-dive-construction-and-builder-news"
+      ],
+      "research_links": [
+        "https://www.bloomberg.com/news/articles/2026-10-08/environmental-groups-criticize-senate-permitting-deal-as-bad-bargain",
+        "https://www.constructiondive.com/contact/",
+        "https://www.constructiondive.com/feeds/news/",
+        "https://www.constructiondive.com/news/2027-top-construction-trade-shows/832065/",
+        "https://www.constructiondive.com/news/3-contractors-military-construction-september-2026/831968/",
+        "https://www.constructiondive.com/news/5-construction-trends-2026/808904/",
+        "https://www.constructiondive.com/news/a-question-hangs-over-ai-construction-boom/832470/",
+        "https://www.constructiondive.com/news/anduril-industries-u-s-navy-arsenal-2-shipyard-baltimore-county-maryland/832467/",
+        "https://www.constructiondive.com/news/caterpillar-ultium-cells-1b-facility-investments-avio-usa-genentech/832097/",
+        "https://www.constructiondive.com/news/constellation-google-nuclear-deal-data-center-energy/832351/",
+        "https://www.constructiondive.com/news/construction-trends-outlook-2026/810859/",
+        "https://www.constructiondive.com/news/contractors-project-wins-stadiums-us/831524/",
+        "https://www.constructiondive.com/news/data-center-construction-spending-august/831954/",
+        "https://www.constructiondive.com/news/data-center-contractors-learn-to-live-backlash/832142/",
+        "https://www.constructiondive.com/news/dol-to-up-minimum-wage-federal-contractors/832509/",
+        "https://www.constructiondive.com/news/dot-awards-critical-infrastructure-projects/832265/",
+        "https://www.constructiondive.com/news/education-healthcare-projects-boosted-construction-planning-september/832535/",
+        "https://www.constructiondive.com/news/fisk-electric-tutor-perini-data-center-modular/832658/",
+        "https://www.constructiondive.com/news/fluor-jgc-win-contracts-lng-canada-phase-2-expansion/831739/",
+        "https://www.constructiondive.com/news/gilbane-marvel-complete-sustainable-nyc-job-design-build/831943/",
+        "https://www.constructiondive.com/news/gov-reynolds-signs-bill-1b-tax-incentives-iowa-steel-mill-mesabi-metallics/832230/",
+        "https://www.constructiondive.com/news/granite-jv-big-creek-tunnel-cleveland-ohio/832047/",
+        "https://www.constructiondive.com/news/hitt-groundbreaking-avio-usa/832480/",
+        "https://www.constructiondive.com/news/megaprojects-grab-1-in-4-nonresidential-construction-dollars/832256/",
+        "https://www.constructiondive.com/news/nccer-craftpro-construction-trains-new-hires-level-up-vets/831859/",
+        "https://www.constructiondive.com/news/office-to-housing-conversion-chicago-downtown/831867/",
+        "https://www.constructiondive.com/news/opioid-crisis-naloxone-osha-abc-construction-overdose/832026/",
+        "https://www.constructiondive.com/news/punch-list-bechtel-ted-danson-hensel-phelps-hq/832590/",
+        "https://www.constructiondive.com/news/punch-list-skanska-breaks-ground-on-750m-biotech-project-nvidia-taps-jac/831991/",
+        "https://www.constructiondive.com/news/sage-acquires-paperless-environments-construction-payroll-tech/832130/",
+        "https://www.constructiondive.com/news/skanska-wins-education-builds-college-high-school-construction/832347/",
+        "https://www.constructiondive.com/news/suffolk-targets-sports-stadiums-division/832304/",
+        "https://www.constructiondive.com/news/thick-walls-needed-absorb-data-center-noise-research/831999/",
+        "https://www.constructiondive.com/news/tutor-perini-skanska-win-coast-guard-jobs/832227/",
+        "https://www.constructiondive.com/selfservice/event-listings/contact"
+      ],
+      "robots_url": "https://www.constructiondive.com/robots.txt",
+      "robots_status": "allowed",
+      "http_status": 200,
+      "final_url": "https://www.constructiondive.com/",
+      "content_type": "text/html; charset=utf-8",
+      "title": "Construction News and Trends | Construction Dive",
+      "content_sha256": "28cdded715e785f97d98aa4a4fffc3cd8905fc9f6978a4b1c9f6fd00ffec557d",
+      "access_status": "retrieved"
+    },
+    {
+      "id": "enr",
+      "url": "https://www.enr.com/",
+      "checked_at": "2026-10-12T11:22:05.341346+00:00",
+      "social_links": [],
+      "research_links": [],
+      "robots_url": "https://www.enr.com/robots.txt",
+      "robots_status": "unavailable",
+      "access_status": "robots_check_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "dallas_innovates",
+      "url": "https://dallasinnovates.com/",
+      "checked_at": "2026-10-12T11:22:06.195777+00:00",
+      "social_links": [
+        "https://twitter.com/dallasinnovates/",
+        "https://www.facebook.com/dallasinnovates/",
+        "https://www.instagram.com/dallasinnovates/"
+      ],
+      "research_links": [],
+      "robots_url": "https://dallasinnovates.com/robots.txt",
+      "robots_status": "allowed",
+      "http_status": 200,
+      "final_url": "https://dallasinnovates.com/",
+      "content_type": "text/html; charset=UTF-8",
+      "title": "Dallas Innovates » What's new + next in Dallas-Fort Worth innovation",
+      "content_sha256": "e5553635ceed51f5819f08515c7263c5aa3bee9dffbbef58d479157cbd27f1af",
+      "access_status": "retrieved"
+    },
+    {
+      "id": "dallas_bizjournal",
+      "url": "https://www.bizjournals.com/dallas/",
+      "checked_at": "2026-10-12T11:22:06.807732+00:00",
+      "social_links": [],
+      "research_links": [],
+      "robots_url": "https://www.bizjournals.com/robots.txt",
+      "robots_status": "unavailable",
+      "access_status": "robots_check_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "business_wire",
+      "url": "https://www.businesswire.com/",
+      "checked_at": "2026-10-12T11:22:07.641087+00:00",
+      "social_links": [],
+      "research_links": [],
+      "robots_url": "https://www.businesswire.com/robots.txt",
+      "robots_status": "allowed",
+      "access_status": "unavailable",
+      "error": "The read operation timed out"
+    },
+    {
+      "id": "dallas_chamber",
+      "url": "https://www.dallaschamber.org/",
+      "checked_at": "2026-10-12T11:22:08.521176+00:00",
+      "social_links": [
+        "https://twitter.com/DRC",
+        "https://www.facebook.com/dallasregionalchamber/",
+        "https://www.instagram.com/dallasregionalchamber/",
+        "https://www.linkedin.com/company/dallas-regional-chamber",
+        "https://www.youtube.com/dallasregionalchamber"
+      ],
+      "research_links": [
+        "https://about.att.com/category/all_news.html",
+        "https://www.dallaschamber.org/about/contact/",
+        "https://www.dallaschamber.org/careers/",
+        "https://www.dallaschamber.org/drc-news/",
+        "https://www.dallaschamber.org/news-resources/",
+        "https://www.dallaschamber.org/news-resources/#subscribe"
+      ],
+      "robots_url": "https://www.dallaschamber.org/robots.txt",
+      "robots_status": "allowed",
+      "http_status": 200,
+      "final_url": "https://www.dallaschamber.org/",
+      "content_type": "text/html; charset=UTF-8",
+      "title": "Dallas Regional Chamber",
+      "content_sha256": "14db6082896dc629c92ff9832ea45e013a9536392a0a42ba2fdc278080539573",
+      "access_status": "retrieved"
+    },
+    {
+      "id": "fort_worth_edp",
+      "url": "https://fortworthedp.com/",
+      "checked_at": "2026-10-12T11:22:09.902617+00:00",
+      "social_links": [
+        "https://twitter.com/FortworthEDP",
+        "https://www.facebook.com/profile.php?id=61557565437614",
+        "https://www.linkedin.com/company/fort-worth-edp"
+      ],
+      "research_links": [
+        "https://fortworthedp.com/contact/",
+        "https://fortworthedp.com/news/"
+      ],
+      "robots_url": "https://fortworthedp.com/robots.txt",
+      "robots_status": "allowed",
+      "http_status": 200,
+      "final_url": "https://fortworthedp.com/",
+      "content_type": "text/html; charset=UTF-8",
+      "title": "Fort Worth Economic Development Partnership | Home",
+      "content_sha256": "9debcaacafd14751dc7e87aaa7ec4a89109ce69795544bdc40d7e10dcdf8bb50",
+      "access_status": "retrieved"
+    }
+  ],
+  "search_checks": [
+    {
+      "id": "kpost:linkedin:2026-10-12",
+      "company_id": "kpost",
+      "platform": "linkedin",
+      "query": "\"KPost Company\"",
+      "domains": [
+        "linkedin.com"
+      ],
+      "checked_at": "2026-10-12",
+      "provider": "research_web_search",
+      "status": "matches_returned",
+      "result_urls": [
+        "https://www.linkedin.com/company/kpost-roofing-%26-waterproofing"
+      ],
+      "coverage": "partial_public_index",
+      "note": "Curated relevant results from a multi-query batch. Empty results do not establish absence of an account or activity."
+    },
+    {
+      "id": "kpost:instagram:2026-10-12",
+      "company_id": "kpost",
+      "platform": "instagram",
+      "query": "\"kpostcompany\"",
+      "domains": [
+        "instagram.com"
+      ],
+      "checked_at": "2026-10-12",
+      "provider": "research_web_search",
+      "status": "no_relevant_results_returned",
+      "result_urls": [],
+      "coverage": "partial_public_index",
+      "note": "Curated relevant results from a multi-query batch. Empty results do not establish absence of an account or activity."
+    },
+    {
+      "id": "kpost:x:2026-10-12",
+      "company_id": "kpost",
+      "platform": "x",
+      "query": "\"kpostdfw\"",
+      "domains": [
+        "x.com",
+        "twitter.com"
+      ],
+      "checked_at": "2026-10-12",
+      "provider": "research_web_search",
+      "status": "no_relevant_results_returned",
+      "result_urls": [],
+      "coverage": "partial_public_index",
+      "note": "Curated relevant results from a multi-query batch. Empty results do not establish absence of an account or activity."
+    },
+    {
+      "id": "kpost:indeed:2026-10-12",
+      "company_id": "kpost",
+      "platform": "indeed",
+      "query": "\"KPost Company\" jobs",
+      "domains": [
+        "indeed.com"
+      ],
+      "checked_at": "2026-10-12",
+      "provider": "research_web_search",
+      "status": "matches_returned",
+      "result_urls": [
+        "https://www.indeed.com/cmp/Kpost-Company"
+      ],
+      "coverage": "partial_public_index",
+      "note": "Curated relevant results from a multi-query batch. Empty results do not establish absence of an account or activity."
+    },
+    {
+      "id": "bakertriangle:linkedin:2026-10-12",
+      "company_id": "bakertriangle",
+      "platform": "linkedin",
+      "query": "\"BakerTriangle\"",
+      "domains": [
+        "linkedin.com"
+      ],
+      "checked_at": "2026-10-12",
+      "provider": "research_web_search",
+      "status": "matches_returned",
+      "result_urls": [
+        "https://www.linkedin.com/company/baker-triangle"
+      ],
+      "coverage": "partial_public_index",
+      "note": "Curated relevant results from a multi-query batch. Empty results do not establish absence of an account or activity."
+    },
+    {
+      "id": "bakertriangle:instagram:2026-10-12",
+      "company_id": "bakertriangle",
+      "platform": "instagram",
+      "query": "\"BakerTriangle\"",
+      "domains": [
+        "instagram.com"
+      ],
+      "checked_at": "2026-10-12",
+      "provider": "research_web_search",
+      "status": "no_relevant_results_returned",
+      "result_urls": [],
+      "coverage": "partial_public_index",
+      "note": "Curated relevant results from a multi-query batch. Empty results do not establish absence of an account or activity."
+    },
+    {
+      "id": "bakertriangle:x:2026-10-12",
+      "company_id": "bakertriangle",
+      "platform": "x",
+      "query": "\"BakerTriangle\"",
+      "domains": [
+        "x.com",
+        "twitter.com"
+      ],
+      "checked_at": "2026-10-12",
+      "provider": "research_web_search",
+      "status": "no_relevant_results_returned",
+      "result_urls": [],
+      "coverage": "partial_public_index",
+      "note": "Curated relevant results from a multi-query batch. Empty results do not establish absence of an account or activity."
+    },
+    {
+      "id": "bakertriangle:indeed:2026-10-12",
+      "company_id": "bakertriangle",
+      "platform": "indeed",
+      "query": "\"BakerTriangle\" jobs",
+      "domains": [
+        "indeed.com"
+      ],
+      "checked_at": "2026-10-12",
+      "provider": "research_web_search",
+      "status": "matches_returned",
+      "result_urls": [
+        "https://www.indeed.com/cmp/Bakertriangle"
+      ],
+      "coverage": "partial_public_index",
+      "note": "Curated relevant results from a multi-query batch. Empty results do not establish absence of an account or activity."
+    },
+    {
+      "id": "polk:linkedin:2026-10-12",
+      "company_id": "polk",
+      "platform": "linkedin",
+      "query": "\"Polk Mechanical\"",
+      "domains": [
+        "linkedin.com"
+      ],
+      "checked_at": "2026-10-12",
+      "provider": "research_web_search",
+      "status": "matches_returned",
+      "result_urls": [
+        "https://www.linkedin.com/company/polk-mechanical"
+      ],
+      "coverage": "partial_public_index",
+      "note": "Curated relevant results from a multi-query batch. Empty results do not establish absence of an account or activity."
+    },
+    {
+      "id": "polk:instagram:2026-10-12",
+      "company_id": "polk",
+      "platform": "instagram",
+      "query": "\"polk_mechanical\"",
+      "domains": [
+        "instagram.com"
+      ],
+      "checked_at": "2026-10-12",
+      "provider": "research_web_search",
+      "status": "no_relevant_results_returned",
+      "result_urls": [],
+      "coverage": "partial_public_index",
+      "note": "Curated relevant results from a multi-query batch. Empty results do not establish absence of an account or activity."
+    },
+    {
+      "id": "polk:x:2026-10-12",
+      "company_id": "polk",
+      "platform": "x",
+      "query": "\"PolkMechanical\"",
+      "domains": [
+        "x.com",
+        "twitter.com"
+      ],
+      "checked_at": "2026-10-12",
+      "provider": "research_web_search",
+      "status": "no_relevant_results_returned",
+      "result_urls": [],
+      "coverage": "partial_public_index",
+      "note": "Curated relevant results from a multi-query batch. Empty results do not establish absence of an account or activity."
+    },
+    {
+      "id": "polk:indeed:2026-10-12",
+      "company_id": "polk",
+      "platform": "indeed",
+      "query": "\"Polk Mechanical Company\" jobs",
+      "domains": [
+        "indeed.com"
+      ],
+      "checked_at": "2026-10-12",
+      "provider": "research_web_search",
+      "status": "matches_returned",
+      "result_urls": [
+        "https://www.indeed.com/cmp/Polk-Mechanical-Company/jobs"
+      ],
+      "coverage": "partial_public_index",
+      "note": "Curated relevant results from a multi-query batch. Empty results do not establish absence of an account or activity."
+    },
+    {
+      "id": "rogers_obrien:linkedin:2026-10-12",
+      "company_id": "rogers_obrien",
+      "platform": "linkedin",
+      "query": "\"Rogers-O'Brien Construction\"",
+      "domains": [
+        "linkedin.com"
+      ],
+      "checked_at": "2026-10-12",
+      "provider": "research_web_search",
+      "status": "matches_returned",
+      "result_urls": [
+        "https://www.linkedin.com/company/rogersobrien",
+        "https://www.linkedin.com/posts/rogersobrien_11-blocks-9-parking-garages-88-tenant-build-outs-activity-7480984230899027969-XaUE"
+      ],
+      "coverage": "partial_public_index",
+      "note": "Curated relevant results from a multi-query batch. Empty results do not establish absence of an account or activity."
+    },
+    {
+      "id": "rogers_obrien:instagram:2026-10-12",
+      "company_id": "rogers_obrien",
+      "platform": "instagram",
+      "query": "\"rogersobrien\"",
+      "domains": [
+        "instagram.com"
+      ],
+      "checked_at": "2026-10-12",
+      "provider": "research_web_search",
+      "status": "no_relevant_results_returned",
+      "result_urls": [],
+      "coverage": "partial_public_index",
+      "note": "Curated relevant results from a multi-query batch. Empty results do not establish absence of an account or activity."
+    },
+    {
+      "id": "rogers_obrien:x:2026-10-12",
+      "company_id": "rogers_obrien",
+      "platform": "x",
+      "query": "\"Rogers O'Brien\"",
+      "domains": [
+        "x.com",
+        "twitter.com"
+      ],
+      "checked_at": "2026-10-12",
+      "provider": "research_web_search",
+      "status": "no_relevant_results_returned",
+      "result_urls": [],
+      "coverage": "partial_public_index",
+      "note": "Curated relevant results from a multi-query batch. Empty results do not establish absence of an account or activity."
+    },
+    {
+      "id": "rogers_obrien:indeed:2026-10-12",
+      "company_id": "rogers_obrien",
+      "platform": "indeed",
+      "query": "\"Rogers-O'Brien Construction\" jobs",
+      "domains": [
+        "indeed.com"
+      ],
+      "checked_at": "2026-10-12",
+      "provider": "research_web_search",
+      "status": "matches_returned",
+      "result_urls": [
+        "https://www.indeed.com/cmp/Rogers--o%27brien-Construction"
+      ],
+      "coverage": "partial_public_index",
+      "note": "Curated relevant results from a multi-query batch. Empty results do not establish absence of an account or activity."
+    },
+    {
+      "id": "tdindustries:linkedin:2026-10-12",
+      "company_id": "tdindustries",
+      "platform": "linkedin",
+      "query": "\"TDIndustries\"",
+      "domains": [
+        "linkedin.com"
+      ],
+      "checked_at": "2026-10-12",
+      "provider": "research_web_search",
+      "status": "no_relevant_results_returned",
+      "result_urls": [],
+      "coverage": "partial_public_index",
+      "note": "Curated relevant results from a multi-query batch. Empty results do not establish absence of an account or activity."
+    },
+    {
+      "id": "tdindustries:instagram:2026-10-12",
+      "company_id": "tdindustries",
+      "platform": "instagram",
+      "query": "\"tdindustries\"",
+      "domains": [
+        "instagram.com"
+      ],
+      "checked_at": "2026-10-12",
+      "provider": "research_web_search",
+      "status": "no_relevant_results_returned",
+      "result_urls": [],
+      "coverage": "partial_public_index",
+      "note": "Curated relevant results from a multi-query batch. Empty results do not establish absence of an account or activity."
+    },
+    {
+      "id": "tdindustries:x:2026-10-12",
+      "company_id": "tdindustries",
+      "platform": "x",
+      "query": "\"TDIndustries\"",
+      "domains": [
+        "x.com",
+        "twitter.com"
+      ],
+      "checked_at": "2026-10-12",
+      "provider": "research_web_search",
+      "status": "no_relevant_results_returned",
+      "result_urls": [],
+      "coverage": "partial_public_index",
+      "note": "Curated relevant results from a multi-query batch. Empty results do not establish absence of an account or activity."
+    },
+    {
+      "id": "tdindustries:indeed:2026-10-12",
+      "company_id": "tdindustries",
+      "platform": "indeed",
+      "query": "\"TDIndustries\" jobs",
+      "domains": [
+        "indeed.com"
+      ],
+      "checked_at": "2026-10-12",
+      "provider": "research_web_search",
+      "status": "matches_returned",
+      "result_urls": [
+        "https://www.indeed.com/cmp/Tdindustries?campaignid=mobvjcmp&fromjk=1c4426aff5f66653"
+      ],
+      "coverage": "partial_public_index",
+      "note": "Curated relevant results from a multi-query batch. Empty results do not establish absence of an account or activity."
+    },
+    {
+      "id": "hill_wilkinson:linkedin:2026-10-12",
+      "company_id": "hill_wilkinson",
+      "platform": "linkedin",
+      "query": "\"Hill & Wilkinson\"",
+      "domains": [
+        "linkedin.com"
+      ],
+      "checked_at": "2026-10-12",
+      "provider": "research_web_search",
+      "status": "matches_returned",
+      "result_urls": [
+        "https://www.linkedin.com/company/hill-wilkinson/"
+      ],
+      "coverage": "partial_public_index",
+      "note": "Curated relevant results from a multi-query batch. Empty results do not establish absence of an account or activity."
+    },
+    {
+      "id": "hill_wilkinson:instagram:2026-10-12",
+      "company_id": "hill_wilkinson",
+      "platform": "instagram",
+      "query": "\"hillwilkinson\"",
+      "domains": [
+        "instagram.com"
+      ],
+      "checked_at": "2026-10-12",
+      "provider": "research_web_search",
+      "status": "no_relevant_results_returned",
+      "result_urls": [],
+      "coverage": "partial_public_index",
+      "note": "Curated relevant results from a multi-query batch. Empty results do not establish absence of an account or activity."
+    },
+    {
+      "id": "hill_wilkinson:x:2026-10-12",
+      "company_id": "hill_wilkinson",
+      "platform": "x",
+      "query": "\"Hill Wilkinson\"",
+      "domains": [
+        "x.com",
+        "twitter.com"
+      ],
+      "checked_at": "2026-10-12",
+      "provider": "research_web_search",
+      "status": "no_relevant_results_returned",
+      "result_urls": [],
+      "coverage": "partial_public_index",
+      "note": "Curated relevant results from a multi-query batch. Empty results do not establish absence of an account or activity."
+    },
+    {
+      "id": "hill_wilkinson:indeed:2026-10-12",
+      "company_id": "hill_wilkinson",
+      "platform": "indeed",
+      "query": "\"Hill & Wilkinson\" jobs",
+      "domains": [
+        "indeed.com"
+      ],
+      "checked_at": "2026-10-12",
+      "provider": "research_web_search",
+      "status": "matches_returned",
+      "result_urls": [
+        "https://www.indeed.com/cmp/Hill-%26-Wilkinson-General-Contractors?campaignid=mobvjcmp&fromjk=cb62a75a3abef39d"
+      ],
+      "coverage": "partial_public_index",
+      "note": "Curated relevant results from a multi-query batch. Empty results do not establish absence of an account or activity."
+    }
+  ],
+  "observations": [
+    {
+      "id": "polk_jobs",
+      "company_id": "polk",
+      "platform": "indeed",
+      "url": "https://www.indeed.com/cmp/Polk-Mechanical-Company/jobs",
+      "summary": "Indexed employer jobs include Grand Prairie field/service roles alongside positions outside the pilot market.",
+      "classification": "hiring_research_candidate",
+      "event_date": null,
+      "quantity": null,
+      "status": "needs_employer_corroboration",
+      "next_action": "Check the company-linked iCIMS portal for active DFW roles and any explicit growth context."
+    },
+    {
+      "id": "kpost_jobs",
+      "company_id": "kpost",
+      "platform": "indeed",
+      "url": "https://www.indeed.com/cmp/Kpost-Company",
+      "summary": "Indexed employer page advertises a Dallas sheet-metal role, with an old relative posting date.",
+      "classification": "hiring_research_candidate",
+      "event_date": null,
+      "quantity": null,
+      "status": "needs_freshness_check",
+      "next_action": "Check the official careers page; do not treat the advertisement count as workforce growth."
+    },
+    {
+      "id": "ro_fields_west",
+      "company_id": "rogers_obrien",
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/posts/rogersobrien_11-blocks-9-parking-garages-88-tenant-build-outs-activity-7480984230899027969-XaUE",
+      "summary": "Indexed company post describes ongoing team activity at Fields West in Frisco.",
+      "classification": "project_activity_research_candidate",
+      "event_date": null,
+      "quantity": null,
+      "status": "needs_date_and_demand_corroboration",
+      "next_action": "Verify the original post date, current project stage and purchasing responsibility. Existing workers are not new hires or apparel quantities."
+    },
+    {
+      "id": "ro_old_renovation",
+      "company_id": "rogers_obrien",
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/posts/rogersobrien_you-might-have-noticed-a-little-construction-activity-7417656906355355648-RfUK",
+      "summary": "Indexed office-renovation post refers to planned completion in summer 2026, which is already past at review.",
+      "classification": "old_project_context",
+      "event_date": null,
+      "quantity": null,
+      "status": "do_not_alert",
+      "next_action": "Do not issue a new-opening alert from this historical announcement."
+    },
+    {
+      "id": "baker_false_match",
+      "company_id": "bakertriangle",
+      "platform": "indeed",
+      "url": "https://www.indeed.com/q-bakertriangle-l-fort-worth%2C-tx-jobs.html",
+      "summary": "Search landing page labelled with the company query returned bakery employers rather than the contractor.",
+      "classification": "false_entity_match",
+      "event_date": null,
+      "quantity": null,
+      "status": "rejected",
+      "next_action": "Match the employer on each job; page title or search keyword does not establish identity."
+    },
+    {
+      "id": "td_jobs",
+      "company_id": "tdindustries",
+      "platform": "indeed",
+      "url": "https://www.indeed.com/cmp/Tdindustries?campaignid=mobvjcmp&fromjk=1c4426aff5f66653",
+      "summary": "Indexed employer listings mix DFW operational jobs, jobs elsewhere, and internships for summer 2027.",
+      "classification": "hiring_research_candidate",
+      "event_date": null,
+      "quantity": null,
+      "status": "needs_location_and_timing_check",
+      "next_action": "Check official employer listings and separate future internship recruitment from near-term field-team expansion."
+    },
+    {
+      "id": "hill_jobs",
+      "company_id": "hill_wilkinson",
+      "platform": "indeed",
+      "url": "https://www.indeed.com/cmp/Hill-%26-Wilkinson-General-Contractors/locations/TX/Dallas",
+      "summary": "Indexed Dallas-area employer page includes Richardson construction-labor roles and Fort Worth supervision roles.",
+      "classification": "hiring_research_candidate",
+      "event_date": null,
+      "quantity": null,
+      "status": "needs_employer_corroboration",
+      "next_action": "Use the official careers site to validate job identity, location, active status and any stated hiring quantity."
+    }
+  ],
+  "rejected_links": [
+    {
+      "company_id": "polk",
+      "url": "https://www.facebook.com/buildtexasproud/",
+      "reason": "Different brand/initiative linked from the site; not verified as Polk's corporate account."
+    },
+    {
+      "company_id": "hill_wilkinson",
+      "url": "https://youtu.be/kQUsbxbXnuU?si=YYvjlVdmlLyJBVzO",
+      "reason": "Individual video link; not a company channel identity."
+    }
+  ],
+  "profile_aliases": [
+    {
+      "company_id": "rogers_obrien",
+      "platform": "linkedin",
+      "official_url": "https://www.linkedin.com/company/121475",
+      "candidate_url": "https://www.linkedin.com/company/rogersobrien",
+      "status": "corroborated_alias",
+      "evidence_url": "https://www.linkedin.com/company/rogersobrien",
+      "note": "Vanity page matches company name, Dallas location and r-o.com domain. Keep official numeric URL; no destination redirect was directly verified."
+    }
+  ]
+}

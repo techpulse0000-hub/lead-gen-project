@@ -1,0 +1,369 @@
+{
+  "review_date": "2026-10-12",
+  "review_method": "Public website inspection, official-site outbound links, and public web-index searches. No authenticated social feeds were accessed.",
+  "source_identity_reviews": [
+    {
+      "id": "dallas_council",
+      "evidence_url": "https://dallascityhall.com/government/citysecretary/Pages/cMeetings.aspx",
+      "observation": "Public council records page opened through the research browser; direct retrieval timed out.",
+      "identity_verified": true
+    },
+    {
+      "id": "fort_worth_bids",
+      "evidence_url": "https://www.fortworthtexas.gov/departments/finance/bids",
+      "observation": "City procurement page opened through the research browser; direct request returned 403.",
+      "identity_verified": true
+    },
+    {
+      "id": "fort_worth_records",
+      "evidence_url": "https://publicdocuments.fortworthtexas.gov/CSODOCS/DocView.aspx?dbid=0&id=360665&repo=City-Secretary",
+      "observation": "City Secretary project completion record opened; verify actual event dates separately from indexing.",
+      "identity_verified": true
+    },
+    {
+      "id": "txdot",
+      "evidence_url": "https://www.txdot.gov/business/road-bridge-maintenance/contract-letting.html",
+      "observation": "Official contract-letting page found, including links for award/rejection decisions. Replaces a 404 URL.",
+      "identity_verified": true
+    },
+    {
+      "id": "bakertriangle",
+      "evidence_url": "https://bakertriangle.com/",
+      "observation": "Company site opened through the research browser; direct robots request returned 403. LinkedIn identifies Mesquite and links back to the company domain.",
+      "identity_verified": true
+    },
+    {
+      "id": "enr",
+      "evidence_url": "https://www.enr.com/",
+      "observation": "ENR publisher homepage opened in the research browser. Direct robots request returned 403; articles may need a subscription.",
+      "identity_verified": true
+    },
+    {
+      "id": "dallas_bizjournal",
+      "evidence_url": "https://www.bizjournals.com/dallas/",
+      "observation": "Dallas Business Journal homepage opened in the research browser. Direct robots request returned 403; article access may need a subscription.",
+      "identity_verified": true
+    },
+    {
+      "id": "business_wire",
+      "evidence_url": "https://www.businesswire.com/",
+      "observation": "Business Wire homepage opened in the research browser. Direct request timed out. Treat published releases as company-supplied material.",
+      "identity_verified": true
+    }
+  ],
+  "approved_official_links": {
+    "kpost": [
+      "https://twitter.com/kpostdfw?lang=en",
+      "https://www.facebook.com/KPostCompany/",
+      "https://www.instagram.com/kpostcompany/",
+      "https://www.linkedin.com/company/kpost-roofing-&-waterproofing",
+      "https://www.youtube.com/@kpostcompany"
+    ],
+    "polk": [
+      "https://twitter.com/PolkMechanical",
+      "https://www.facebook.com/PolkMechanical",
+      "https://www.instagram.com/polk_mechanical/",
+      "https://www.linkedin.com/company/polk-mechanical?original_referer=https%3A%2F%2Fwww.polkmechanical.com%2F",
+      "https://www.youtube.com/channel/UC9l0ySzRekNt0ATgNzR6ehw"
+    ],
+    "rogers_obrien": [
+      "https://www.facebook.com/rogersobrien",
+      "https://www.instagram.com/rogersobrien",
+      "https://www.linkedin.com/company/121475",
+      "https://www.youtube.com/user/RogersOBrien"
+    ],
+    "tdindustries": [
+      "https://www.facebook.com/TDIndustriesInc/",
+      "https://www.instagram.com/tdindustries/",
+      "https://www.linkedin.com/company/tdindustries/",
+      "https://www.youtube.com/user/TDIndustriesChannel"
+    ],
+    "hill_wilkinson": [
+      "https://www.facebook.com/HillWilkinson/",
+      "https://www.instagram.com/hillwilkinson/",
+      "https://www.linkedin.com/company/hill-wilkinson/"
+    ]
+  },
+  "rejected_links": [
+    {
+      "company_id": "polk",
+      "url": "https://www.facebook.com/buildtexasproud/",
+      "reason": "Different brand/initiative linked from the site; not verified as Polk's corporate account."
+    },
+    {
+      "company_id": "hill_wilkinson",
+      "url": "https://youtu.be/kQUsbxbXnuU?si=YYvjlVdmlLyJBVzO",
+      "reason": "Individual video link; not a company channel identity."
+    }
+  ],
+  "additional_profiles": [
+    {
+      "company_id": "bakertriangle",
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/company/baker-triangle",
+      "verification_status": "corroborated_identity",
+      "evidence_url": "https://www.linkedin.com/company/baker-triangle",
+      "note": "Indexed company page matches the construction business and Mesquite location and links to bakertriangle.com. Official-site outbound link was not retrieved."
+    },
+    {
+      "company_id": "kpost",
+      "platform": "indeed",
+      "url": "https://www.indeed.com/cmp/Kpost-Company",
+      "verification_status": "candidate",
+      "evidence_url": "https://www.indeed.com/cmp/Kpost-Company",
+      "note": "Indexed employer page names KPost and Dallas but is unclaimed. Not a verified company-controlled account."
+    },
+    {
+      "company_id": "bakertriangle",
+      "platform": "indeed",
+      "url": "https://www.indeed.com/cmp/Bakertriangle",
+      "verification_status": "candidate",
+      "evidence_url": "https://www.indeed.com/cmp/Bakertriangle",
+      "note": "Matching employer name and Fort Worth job; ownership is not verified."
+    },
+    {
+      "company_id": "polk",
+      "platform": "indeed",
+      "url": "https://www.indeed.com/cmp/Polk-Mechanical-Company",
+      "verification_status": "candidate",
+      "evidence_url": "https://www.indeed.com/cmp/Polk-Mechanical-Company/jobs",
+      "note": "Matching employer name and Grand Prairie jobs. Corroborate individual vacancies on the official linked careers portal."
+    },
+    {
+      "company_id": "rogers_obrien",
+      "platform": "indeed",
+      "url": "https://www.indeed.com/cmp/Rogers--o%27brien-Construction",
+      "verification_status": "candidate",
+      "evidence_url": "https://www.indeed.com/cmp/Rogers--o%27brien-Construction",
+      "note": "Matching company and Dallas location; employer page is unclaimed."
+    },
+    {
+      "company_id": "tdindustries",
+      "platform": "indeed",
+      "url": "https://www.indeed.com/cmp/Tdindustries",
+      "verification_status": "candidate",
+      "evidence_url": "https://www.indeed.com/cmp/Tdindustries?campaignid=mobvjcmp&fromjk=1c4426aff5f66653",
+      "note": "Matching employer with Dallas and Fort Worth jobs among jobs in other markets. Ownership not independently verified."
+    },
+    {
+      "company_id": "hill_wilkinson",
+      "platform": "indeed",
+      "url": "https://www.indeed.com/cmp/Hill-%26-Wilkinson-General-Contractors",
+      "verification_status": "candidate",
+      "evidence_url": "https://www.indeed.com/cmp/Hill-%26-Wilkinson-General-Contractors?campaignid=mobvjcmp&fromjk=cb62a75a3abef39d",
+      "note": "Matching business and Richardson location, but employer page is unclaimed. Other similar Indeed pages remain unresolved aliases."
+    }
+  ],
+  "profile_aliases": [
+    {
+      "company_id": "rogers_obrien",
+      "platform": "linkedin",
+      "official_url": "https://www.linkedin.com/company/121475",
+      "candidate_url": "https://www.linkedin.com/company/rogersobrien",
+      "status": "corroborated_alias",
+      "evidence_url": "https://www.linkedin.com/company/rogersobrien",
+      "note": "Vanity page matches company name, Dallas location and r-o.com domain. Keep official numeric URL; no destination redirect was directly verified."
+    }
+  ],
+  "search_batches": [
+    {
+      "company_id": "kpost",
+      "queries": {
+        "linkedin": "\"KPost Company\"",
+        "instagram": "\"kpostcompany\"",
+        "x": "\"kpostdfw\"",
+        "indeed": "\"KPost Company\" jobs"
+      },
+      "results": {
+        "linkedin": [
+          "https://www.linkedin.com/company/kpost-roofing-%26-waterproofing"
+        ],
+        "instagram": [],
+        "x": [],
+        "indeed": [
+          "https://www.indeed.com/cmp/Kpost-Company"
+        ]
+      }
+    },
+    {
+      "company_id": "bakertriangle",
+      "queries": {
+        "linkedin": "\"BakerTriangle\"",
+        "instagram": "\"BakerTriangle\"",
+        "x": "\"BakerTriangle\"",
+        "indeed": "\"BakerTriangle\" jobs"
+      },
+      "results": {
+        "linkedin": [
+          "https://www.linkedin.com/company/baker-triangle"
+        ],
+        "instagram": [],
+        "x": [],
+        "indeed": [
+          "https://www.indeed.com/cmp/Bakertriangle"
+        ]
+      }
+    },
+    {
+      "company_id": "polk",
+      "queries": {
+        "linkedin": "\"Polk Mechanical\"",
+        "instagram": "\"polk_mechanical\"",
+        "x": "\"PolkMechanical\"",
+        "indeed": "\"Polk Mechanical Company\" jobs"
+      },
+      "results": {
+        "linkedin": [
+          "https://www.linkedin.com/company/polk-mechanical"
+        ],
+        "instagram": [],
+        "x": [],
+        "indeed": [
+          "https://www.indeed.com/cmp/Polk-Mechanical-Company/jobs"
+        ]
+      }
+    },
+    {
+      "company_id": "rogers_obrien",
+      "queries": {
+        "linkedin": "\"Rogers-O'Brien Construction\"",
+        "instagram": "\"rogersobrien\"",
+        "x": "\"Rogers O'Brien\"",
+        "indeed": "\"Rogers-O'Brien Construction\" jobs"
+      },
+      "results": {
+        "linkedin": [
+          "https://www.linkedin.com/company/rogersobrien",
+          "https://www.linkedin.com/posts/rogersobrien_11-blocks-9-parking-garages-88-tenant-build-outs-activity-7480984230899027969-XaUE"
+        ],
+        "instagram": [],
+        "x": [],
+        "indeed": [
+          "https://www.indeed.com/cmp/Rogers--o%27brien-Construction"
+        ]
+      }
+    },
+    {
+      "company_id": "tdindustries",
+      "queries": {
+        "linkedin": "\"TDIndustries\"",
+        "instagram": "\"tdindustries\"",
+        "x": "\"TDIndustries\"",
+        "indeed": "\"TDIndustries\" jobs"
+      },
+      "results": {
+        "linkedin": [],
+        "instagram": [],
+        "x": [],
+        "indeed": [
+          "https://www.indeed.com/cmp/Tdindustries?campaignid=mobvjcmp&fromjk=1c4426aff5f66653"
+        ]
+      }
+    },
+    {
+      "company_id": "hill_wilkinson",
+      "queries": {
+        "linkedin": "\"Hill & Wilkinson\"",
+        "instagram": "\"hillwilkinson\"",
+        "x": "\"Hill Wilkinson\"",
+        "indeed": "\"Hill & Wilkinson\" jobs"
+      },
+      "results": {
+        "linkedin": [
+          "https://www.linkedin.com/company/hill-wilkinson/"
+        ],
+        "instagram": [],
+        "x": [],
+        "indeed": [
+          "https://www.indeed.com/cmp/Hill-%26-Wilkinson-General-Contractors?campaignid=mobvjcmp&fromjk=cb62a75a3abef39d"
+        ]
+      }
+    }
+  ],
+  "observations": [
+    {
+      "id": "polk_jobs",
+      "company_id": "polk",
+      "platform": "indeed",
+      "url": "https://www.indeed.com/cmp/Polk-Mechanical-Company/jobs",
+      "summary": "Indexed employer jobs include Grand Prairie field/service roles alongside positions outside the pilot market.",
+      "classification": "hiring_research_candidate",
+      "event_date": null,
+      "quantity": null,
+      "status": "needs_employer_corroboration",
+      "next_action": "Check the company-linked iCIMS portal for active DFW roles and any explicit growth context."
+    },
+    {
+      "id": "kpost_jobs",
+      "company_id": "kpost",
+      "platform": "indeed",
+      "url": "https://www.indeed.com/cmp/Kpost-Company",
+      "summary": "Indexed employer page advertises a Dallas sheet-metal role, with an old relative posting date.",
+      "classification": "hiring_research_candidate",
+      "event_date": null,
+      "quantity": null,
+      "status": "needs_freshness_check",
+      "next_action": "Check the official careers page; do not treat the advertisement count as workforce growth."
+    },
+    {
+      "id": "ro_fields_west",
+      "company_id": "rogers_obrien",
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/posts/rogersobrien_11-blocks-9-parking-garages-88-tenant-build-outs-activity-7480984230899027969-XaUE",
+      "summary": "Indexed company post describes ongoing team activity at Fields West in Frisco.",
+      "classification": "project_activity_research_candidate",
+      "event_date": null,
+      "quantity": null,
+      "status": "needs_date_and_demand_corroboration",
+      "next_action": "Verify the original post date, current project stage and purchasing responsibility. Existing workers are not new hires or apparel quantities."
+    },
+    {
+      "id": "ro_old_renovation",
+      "company_id": "rogers_obrien",
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/posts/rogersobrien_you-might-have-noticed-a-little-construction-activity-7417656906355355648-RfUK",
+      "summary": "Indexed office-renovation post refers to planned completion in summer 2026, which is already past at review.",
+      "classification": "old_project_context",
+      "event_date": null,
+      "quantity": null,
+      "status": "do_not_alert",
+      "next_action": "Do not issue a new-opening alert from this historical announcement."
+    },
+    {
+      "id": "baker_false_match",
+      "company_id": "bakertriangle",
+      "platform": "indeed",
+      "url": "https://www.indeed.com/q-bakertriangle-l-fort-worth%2C-tx-jobs.html",
+      "summary": "Search landing page labelled with the company query returned bakery employers rather than the contractor.",
+      "classification": "false_entity_match",
+      "event_date": null,
+      "quantity": null,
+      "status": "rejected",
+      "next_action": "Match the employer on each job; page title or search keyword does not establish identity."
+    },
+    {
+      "id": "td_jobs",
+      "company_id": "tdindustries",
+      "platform": "indeed",
+      "url": "https://www.indeed.com/cmp/Tdindustries?campaignid=mobvjcmp&fromjk=1c4426aff5f66653",
+      "summary": "Indexed employer listings mix DFW operational jobs, jobs elsewhere, and internships for summer 2027.",
+      "classification": "hiring_research_candidate",
+      "event_date": null,
+      "quantity": null,
+      "status": "needs_location_and_timing_check",
+      "next_action": "Check official employer listings and separate future internship recruitment from near-term field-team expansion."
+    },
+    {
+      "id": "hill_jobs",
+      "company_id": "hill_wilkinson",
+      "platform": "indeed",
+      "url": "https://www.indeed.com/cmp/Hill-%26-Wilkinson-General-Contractors/locations/TX/Dallas",
+      "summary": "Indexed Dallas-area employer page includes Richardson construction-labor roles and Fort Worth supervision roles.",
+      "classification": "hiring_research_candidate",
+      "event_date": null,
+      "quantity": null,
+      "status": "needs_employer_corroboration",
+      "next_action": "Use the official careers site to validate job identity, location, active status and any stated hiring quantity."
+    }
+  ]
+}
