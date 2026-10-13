@@ -1,4 +1,28 @@
-# Construction intelligence source registry
+# Lead intelligence research engine
+
+A runnable first slice now lives in `leadintel/`: bounded public-website crawling, versioned evidence,
+SQLite full-text search, configurable DFW signal tags and a local review dashboard.
+Company/contact enrichment is queued **only when a flagged lead enters qualification**.
+The contact scraper itself is not implemented yet. Tavily and Apify integrations are preview-only.
+
+## Run the first version
+
+Python 3.11+ with SQLite FTS5 support; no third-party packages or API keys required.
+
+```bash
+python -m leadintel demo
+python -m leadintel search awarded --signal award --geography Collin
+python -m leadintel serve
+```
+
+Open `http://127.0.0.1:8765` on the machine running the server. The demo uses clearly labelled
+fictional fixtures and sends no network requests. The server binds only to loopback; it is not a hosted application.
+
+For real public-site crawling and full commands, see [the first-version guide](docs/ENGINE_QUICKSTART.md).
+This prototype uses SQLite to validate the engine without infrastructure dependencies.
+PostgreSQL/FastAPI remain the production direction. Existing source research is preserved below.
+
+## Construction intelligence source registry
 
 Verified source identities and company social-profile associations for the first DFW contractor pilot. Start with [the readable registry](docs/SOURCE_REGISTRY.md) and [the implementation addition](docs/SOURCE_AND_SOCIAL_PLAN.md).
 
@@ -45,3 +69,4 @@ This performs ordinary public HTTP requests after a robots check and saves compa
 Add a company to the curated seed, run source verification, review its actual links, record public-index searches, then rebuild. Rebuilding refreshes generated review tables and preserves live `search_attempts` history; edit the JSON inputs rather than editing generated review tables directly. Preview and live queries read the stored `companies` table, so the application can later supply newly discovered prospects through the same interface.
 
 All current search results are research candidates. Source identity, company-account association, individual claim verification, access permissions and commercial qualification remain separate.
+

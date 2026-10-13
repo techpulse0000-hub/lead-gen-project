@@ -1,0 +1,17 @@
+{
+  "id": "dfw-construction-v1",
+  "description": "Construction buying-signal research for screen-printing shops; matches are evidence candidates.",
+  "signals": {
+    "hiring": ["hiring", "recruiting", "vacancies", "join our team"],
+    "award": ["awarded", "contract award", "selected contractor"],
+    "mobilization": ["mobilization", "mobilisation", "groundbreaking", "breaking ground"],
+    "expansion": ["expansion", "new facility", "new office", "expanding"]
+  },
+  "geography": {
+    "Dallas": ["dallas"],
+    "Tarrant": ["tarrant", "fort worth"],
+    "Collin": ["collin", "frisco", "plano", "mckinney"],
+    "Denton": ["denton", "frisco", "lewisville"]
+  },
+  "geography_notice": "Place-name mentions only. Frisco spans two counties. Confirm actual job/project location before qualification."
+}

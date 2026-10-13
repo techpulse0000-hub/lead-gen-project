@@ -36,7 +36,7 @@ Information retrieval does not require AI. Company/event interpretation can late
 5. Retrieve permitted content, extract readable text/links/metadata and retain provenance.
 6. Index new content, compare versions and group duplicates or syndicated material.
 7. Return ranked evidence documents and company/event candidates with reasons and uncertainties.
-8. Emit an idempotent enrichment handoff when explicitly requested or when a configured candidate rule is satisfied.
+8. Emit an idempotent company/contact enrichment handoff only when a flagged lead enters qualification. Candidate detection alone must never trigger that scraper.
 
 Local index search is synchronous. Crawl/discovery work is asynchronous and returns a job ID. A search must never silently initiate unbounded network activity.
 
@@ -98,7 +98,7 @@ Proposed operations:
 - get_job(job_id): progress, results, failures, deferred work and usage.
 - get_evidence(document_id): document provenance, permitted excerpt, retrieval status and dates.
 - request_refresh(scope): bounded refresh using stored source policy.
-- request_enrichment(candidate_id): emit a separate, deduplicated enrichment task.
+- begin_qualification(candidate_id): transition a flagged lead into qualification and atomically emit one deduplicated company/contact enrichment task. Reject enrichment requests outside active qualification.
 - search_web(request): compile bounded provider-specific searches, return evidence candidates and usage.
 - collect_company_posts(company_id, platforms, since, per_account_limit): enqueue only assessed company accounts through approved Actor adapters; return job IDs and coverage.
 
@@ -124,7 +124,7 @@ Deterministic extraction can identify company-name mentions, project references 
 Normalize URLs conservatively; tracking parameters can be removed, meaningful document/job identifiers cannot. Use exact hashes for identical content and near-duplicate detection as a grouping hint. Canonical tags and textual similarity alone must not erase conflicting evidence. Cross-posted releases share lineage and count once for corroboration.
 
 Handoff states:
-document discovered → company/event candidate → enrichment queued → enriched candidate → separately reviewed opportunity.
+document discovered → flagged company/event candidate → qualification in progress + enrichment queued → enriched candidate → qualification outcome. Company/contact scraping runs only during qualification. Targeted company social-post research remains part of the research engine.
 Indexing or enrichment never automatically means qualified.
 
 ## 9. Software-enforced boundaries
@@ -328,3 +328,10 @@ Before selecting the final provider/Actor set:
 - Preserve the original plan's identity, provenance, SSRF and budget tests; add unsupported-parameter and provider-storage-policy checks.
 
 All provider quality, real social coverage and invoice behavior remain untested. This revision changes the design and scope; it does not run live collection or create accounts.
+
+## 15. First implementation status — 13 October 2026
+
+The first runnable slice is documented in docs/ENGINE_QUICKSTART.md. It implements bounded HTML crawling, versioned evidence, configurable signal/geography vocabularies, literal full-text retrieval, qualification-gated enrichment queuing and a loopback dashboard. Tavily and Apify inputs are preview-only. The actual contact enrichment worker is not implemented.
+
+SQLite FTS5 is used for this infrastructure-free prototype; PostgreSQL/FastAPI remain the production direction. This is a staged implementation exception to section 10, not a completed production architecture. RSS/PDF/JavaScript, full advanced-query filters, provider execution, shared metered accounting and unattended scheduling remain future milestones. The initial live crawl attempt was deferred at DNS resolution in this cloud environment; live-site transport has not yet been validated.
+
