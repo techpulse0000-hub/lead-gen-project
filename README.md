@@ -3,6 +3,11 @@
 For a concise project overview, major updates, current limitations and directory guide, see
 [notes.txt](notes.txt).
 
+For the complete project handoff, start with [notes.txt](notes.txt), then consult
+[the technical handoff](docs/CLOUD_HANDOFF.md) and the workflow guides linked below. The notes
+explain the product decisions, implementation, experiments, limitations and next steps. Historical
+counts and older dated sections are snapshots, not assurances about the current database or tests.
+
 A runnable first slice now lives in `leadintel/`: company discovery through broad web search,
 structured LLM classification, explainable lead scoring, bounded public-website crawling,
 versioned evidence, SQLite full-text search and a local dashboard.

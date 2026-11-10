@@ -1,6 +1,10 @@
 # Lead generation system — LLM handoff
 
-Updated: 16 October 2026
+Updated: 10 November 2026
+
+Read `notes.txt` first for the more recent, detailed project and decision history. This document
+contains historical snapshots and some older implementation notes; the source code and the newer
+notes take precedence where a dated section conflicts with current behavior.
 
 This document gives another LLM enough context to continue the project safely. It summarizes the
 current product direction, decisions, implementation and unresolved work. It is not a verbatim chat
@@ -92,8 +96,8 @@ Tavily or fetch the destination.
   industry publications. Company websites are intentionally excluded from its source catalogue.
 - `/search`: search the locally stored evidence index.
 - `/leads`: review saved leads and begin qualification.
-- Beginning qualification creates one enrichment task. The actual contact-enrichment worker has not
-  been built.
+- Beginning qualification creates an enrichment task. Separately, the classification page now has
+  a manually initiated Apify contact lookup; see `leadintel/contact_enrichment.py` and `notes.txt`.
 - Offline fictional demo data is labelled synthetic and kept separate from live research results.
 
 ## Important implementation files
@@ -104,6 +108,7 @@ Tavily or fetch the destination.
 - `leadintel/llm_classifier.py` — fixed-model structured classification, validation and scoring.
 - `leadintel/contractor_verification.py` — AI contractor-role/status verification and evidence validation.
 - `leadintel/apify_enrichment.py` — manual score-gated website evidence enrichment.
+- `leadintel/contact_enrichment.py` — bounded Apify employee lookup and AI role-suitability review.
 - `leadintel/research.py` and `leadintel/research_ui.py` — background research runs.
 - `leadintel/link_ui.py` — compact previews and alternative-link rendering.
 - `leadintel/providers.py` — provider requests and usage accounting.

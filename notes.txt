@@ -40,3 +40,161 @@ tools/ - research and registry utilities
 README.md - main project introduction and setup
 notes.txt - project summary, updates and directory
 .env.example - configuration template without live credentials
+
+DETAILED HANDOFF: PRODUCT AND USER REQUIREMENTS
+The customer is a screen-printing shop looking for organizations likely to need branded clothing.
+A buying signal is a public event that may indicate demand, not proof of a purchase. Initial signals
+are contract awards, project starts, expansion and hiring. Construction and DFW are the pilot,
+not the permanent product boundary. Future categories may include schools, restaurants or others;
+their signals, target roles and prompts will need separate research and configuration.
+
+The user wants the system to discover companies from public sources. An earlier version presented
+a list of known companies to check, which did not meet this requirement. The current discovery
+workflow starts from search queries instead. Monitoring preselected publications and government
+sources is a separate supporting workflow. The desired end result is a usable, sourced lead and,
+where possible, the right operational contact, not simply a long list of websites.
+
+The user values concise cards, clickable source headings, a small title-and-domain hover preview,
+alternative links, accurate progress and clear provider-specific errors. Long operations should
+show status in place without interrupting scrolling or reloading the page. A source link or an
+AI score is a starting point for review; it is not an independently verified sales opportunity.
+
+LANGUAGES, STORAGE AND EXECUTION
+Python 3.11+ is the primary implementation language. The standard library provides the local HTTP
+server, request handling, JSON, networking and SQLite integration; the core prototype does not
+require an application framework. SQL defines and queries SQLite tables, including an FTS5 evidence
+index. SQLite stores discovery runs, source evidence, classification, reviews, provider accounting
+and enrichment history. HTML, CSS and browser JavaScript are generated/served by the Python UI
+modules; JavaScript handles interactive controls and background requests. JSON stores structured
+configuration, query data, provider payloads and selected research catalogues. Markdown and this
+text file hold human-readable documentation. Tests use Python's unittest framework and mock
+provider transports. The app is local and binds to 127.0.0.1; it is not a hosted service.
+
+Key paths and responsibilities:
+  leadintel/__main__.py - command entry point, including demo, search and serve.
+  leadintel/web.py - local server, routes, dashboard and request handling.
+  leadintel/discovery_ui.py and discovery.py - search controls, search runs and result ingestion.
+  leadintel/query_bank.py - construction signal/trade query templates and the pilot top 15.
+  leadintel/llm_classifier.py - GPT-4o mini structured classification, checks and scoring.
+  leadintel/contractor_verification.py - ranked project-contractor lookup and AI evidence review.
+  leadintel/contact_enrichment.py - Apify contact request, status/error handling and AI role review.
+  leadintel/apify_enrichment.py - separate Apify website/project evidence collection.
+  leadintel/research.py, research_ui.py and crawler.py - bounded source monitoring and crawling.
+  leadintel/link_ui.py - source-link previews and alternative-link presentation.
+  leadintel/providers.py and store.py - provider access/accounting and SQLite persistence.
+  profiles/dfw-construction.json - first pilot profile.
+  data/monitor_sources.json - source catalogue; data/reviewed_alternative_links.json - curated links.
+  tests/ - tests for discovery, classification, verification, enrichment and dashboard behavior.
+  docs/ - detailed workflow research, source review, search-term analysis and technical handoff.
+
+Run from the repository root with: python -m leadintel serve
+Open http://127.0.0.1:8765/ on the same machine. Run tests with:
+  python -m unittest discover -s tests -v
+Python must be installed and available in the execution environment. The test suite was not
+rerun for the November 2026 documentation upload because no Python interpreter was found.
+Prior test counts in older documents are historical and do not establish current test status.
+
+DISCOVERY AND QUERY APPROACH
+The user found the initial two searches too narrow and asked for 10-20 targeted queries and the
+ability to select up to ten in one run. The app now offers a 15-term pilot set plus a larger
+experimental bank. Templates vary by trade, signal and geography; the recommended terms favor
+awards, project starts and expansion, with some hiring searches. Query preview itself is free;
+each selected Tavily Basic search can consume a provider credit. Local daily/monthly limits do not
+represent usage made elsewhere in the user's Tavily account.
+
+The top-15 ranking was informed by a DFW pilot and independent public search, but all 15 were not
+tested in one controlled simultaneous experiment. Search effectiveness can change by geography,
+provider and date. Measure usable, verified companies per credit rather than raw result volume.
+Search terms for discovering buying signals are in query_bank.py. Separate contractor verification
+queries are in contractor_verification.py; the two sets serve different steps.
+
+CLASSIFICATION AND SALES REVIEW
+Initial classification uses GPT-4o mini on stored title, snippet, URL, originating query and
+available date, rather than automatically reading the entire destination page. It returns
+structured fields for company, signal, evidence and explanation. Application code calculates a
+score, applies eligibility checks and retains the old regex output for historical comparison.
+The classification page presents higher scores first and allows Would call / Would not call /
+Unsure reviews. Classification progress must distinguish the current batch from all stored results.
+
+Earlier results exposed limits: an unrelated caregiver vacancy, a single safety-manager vacancy
+mistaken for bulk hiring, and generic phrases treated as business names. Scores and structured
+output can still be wrong. Recheck the evidence, company identity, role, timing and geography.
+The system is not yet validated across other industries.
+
+PROJECT-CONTRACTOR LOOKUP AND WHY IT CHANGED
+For a project-start or contract-award lead, the company in a headline may be the owner or developer
+rather than the construction contractor. The user specifically challenged an incorrect Trademark
+Property Co. finding on Dunham Pointe. That stored finding was changed to unresolved; the original
+finding was preserved in its record. A proposed award or upcoming council vote is also not proof
+of a final award. The Pat Hallisey Park example initially exposed that error.
+
+The current ranked method first reuses an exact-page verification and existing lead/Apify evidence.
+For award signals it searches for final official awards, bid/meeting decisions and permits before
+secondary reports. For project starts it prioritizes permits, owner/developer announcements and
+planning records, then trade reports and broad search. These are targeted Tavily web searches,
+not dedicated direct integrations to every named government database. A fully unresolved run can
+use up to five Basic searches; existing evidence or a confirmed result can stop it earlier.
+
+GPT-4o mini assesses whether evidence establishes a named project and the contractor's actual role,
+and distinguishes confirmed, pending, likely and unresolved. Code validates structured output
+and cited URLs. A second model review checks new confirmations against cited evidence; this is
+another automated check, not independent proof. Historical confirmations were not all re-audited.
+One known error occurred when status and confidence were inconsistent: 'Pending or likely contractor
+status requires probable confidence'. Handle/retest that case rather than treating it as a finding.
+Exact source-page duplicates can reuse a lookup; different pages about the same project may not.
+
+Examples from independent agent research: LMF Construction was named for Hall Park Terra Residences;
+SpawGlass had an official approval record for Pat Hallisey Park (already present elsewhere in the
+database); MYCON was a candidate for Denton Enterprise Logistics Park but the reviewed evidence
+did not explicitly establish its contractor role. These examples illustrate why project identity,
+role, finality, geography and source access must be checked. The agent demo was exploratory; no
+matched comparison with the automated method has been run, and its exact query count was not logged.
+
+APIFY: TWO DISTINCT USES
+Website evidence enrichment retrieves bounded source pages for an eligible lead. It is separate
+from finding employee contacts and does not itself prove a contractor's role. Contact enrichment
+uses the configured pipelinelabs lead-scraper Actor to look for people at the target company.
+The implemented construction role profile focuses on project, operations and construction managers;
+principal titles are excluded. Requests are capped at five results and a $0.10 Actor charge.
+The model reviews returned role suitability; it does not conduct independent background research
+or establish that email addresses are deliverable or employment is current.
+
+The previous employee Actor encountered a free-user run limit that could appear as a successful
+run with zero results. Other runs produced zero contacts or records the parser could not read.
+The newer integration checks run status and reports provider errors where available. A manual
+Trademark test used strict company-domain and other filters; do not assume those manual filters
+are all wired into the app. The live end-to-end contact workflow and returned identity/domain
+quality still need verification before relying on it. Avoid unnecessary paid retries; inspect
+the Actor run ID, submitted input, status and output first. Do not put API keys in docs, source,
+logs or Git. Apify and OpenAI have separate credentials, limits and charges.
+
+MONITOR SOURCES AND EVIDENCE
+The source catalogue emphasizes direct pages for construction projects, openings and contract
+decisions rather than contractors' company homepages. City procurement listings may be solicitations,
+not final awards; bidders and low bidders are not automatically the winner. Public meeting decisions,
+award notices and issued permits can be stronger evidence if they identify the same project and
+contractor. Private-project announcements and trade reports can help, but must state the role.
+Some sources require accounts, have incomplete coverage or cannot be crawled reliably. A search
+result or an alternative-link fallback does not guarantee source access.
+
+LOCAL STATE, CLOUD AND HANDOFF
+data/engine.sqlite is ignored by Git and contains local research/run history. GitHub therefore
+does not contain the user's live dashboard results or in-memory API keys. Do not copy that database
+or credentials to a public repository. The repository can reproduce the code and documentation,
+not the local lead history. .tmp/ and exports/ may contain unrelated or temporary material.
+The original planning document is not part of this repository. This document summarizes decisions
+from the conversation; it is not the full transcript. Follow the user's latest instructions if
+they differ from historical notes.
+
+PRIORITIES FOR THE NEXT DEVELOPER
+1. Start the dashboard and run the existing tests in a Python 3.11+ environment; record actual results.
+2. Build a small, labelled evaluation set and review sales relevance, company identity, dates and
+   project-specific contractor evidence. Re-audit historical confirmations before relying on them.
+3. Compare agent-led and automated contractor research on the same eligible projects, tracking
+   accuracy, source access, unsuccessful cases, number of searches and actual cost.
+4. Inspect and fix status/confidence validation failures and improve duplicate matching without
+   conflating distinct projects or losing evidence.
+5. Validate Apify input, output shape, account limits, relevant role filtering and specific errors.
+   Verify company/domain and contact quality; agree on cost limits before live provider testing.
+6. Generalize query, classification and role profiles for another industry only after defining
+   its buying signals and acceptance criteria.

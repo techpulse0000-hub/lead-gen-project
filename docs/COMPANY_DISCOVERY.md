@@ -19,7 +19,8 @@ Start `python -m leadintel serve` and open `http://127.0.0.1:8765/` on this comp
    major job-board and social domains; selected trade-news searches restrict Tavily to reviewed source
    domains. The full experimental
    bank remains selectable. Add optional keywords and choose a provider time window. Click Update query list;
-   this is a free preview and clears any previous selection.
+   this is a free preview. Existing selections are retained when their ID and query text still match;
+   selections that no longer match are removed and explained in the interface.
 4. Select 1–10 query checkboxes, or use Select first 10, then Find companies with selected queries.
    There are 20 targeted query options per trade and signal, or 80 across all four signals. General,
    roofing, electrical, mechanical/HVAC, plumbing, concrete, civil/excavation and drywall/framing
