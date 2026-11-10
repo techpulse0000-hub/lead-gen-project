@@ -44,7 +44,7 @@ def run_demo(store):
 
 
 def main():
-    parser=argparse.ArgumentParser(description="Bounded lead research engine; paid integrations are preview-only")
+    parser=argparse.ArgumentParser(description="Bounded lead research engine; dashboard company discovery requires Tavily")
     parser.add_argument("--db",default="data/engine.sqlite")
     parser.add_argument("--profile",default=str(DEFAULT_PROFILE),help="Data-only crawl classification profile")
     sub=parser.add_subparsers(dest="command",required=True)

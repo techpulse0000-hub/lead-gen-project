@@ -1,0 +1,129 @@
+{
+  "reviewed_on": "2026-10-15",
+  "sources": [
+    {
+      "id": "groundbreak_dfw_started",
+      "name": "Groundbreak DFW — Just Started Projects",
+      "url": "https://pro.groundbreak.city/dfw/projects?stage=started",
+      "prefix": "/dfw/",
+      "coverage": "Dallas-Fort Worth",
+      "category": "Direct project listing",
+      "signals": ["Construction started", "Under construction", "Project address", "Expected completion"],
+      "description": "Direct list of DFW projects whose construction began within the last 60 days, sorted by recent updates.",
+      "caution": "Open the project record to verify the named contractor; some records identify only the developer or owner."
+    },
+    {
+      "id": "groundbreak_dfw_starting",
+      "name": "Groundbreak DFW — Starting Soon Projects",
+      "url": "https://pro.groundbreak.city/dfw/projects?stage=starting",
+      "prefix": "/dfw/",
+      "coverage": "Dallas-Fort Worth",
+      "category": "Direct project listing",
+      "signals": ["Starting within 90 days", "Approved projects", "Project address", "Expected completion"],
+      "description": "Direct list of DFW projects expected to begin construction within 90 days.",
+      "caution": "Starting-soon dates can move; confirm a permit, award or contractor before treating the company as a lead."
+    },
+    {
+      "id": "groundbreak_dfw_contractors",
+      "name": "Groundbreak DFW — Most Active General Contractors",
+      "url": "https://pro.groundbreak.city/dfw/stats/most-active-contractors",
+      "prefix": "/dfw/",
+      "coverage": "Dallas-Fort Worth",
+      "category": "Direct contractor ranking",
+      "signals": ["Named general contractors", "Permit count", "Last 90 days", "Recent activity"],
+      "description": "Direct ranking of general contractors named on the most DFW building permits during the last 90 days.",
+      "caution": "Exclude placeholder or malformed contractor names and verify the underlying permits before qualification."
+    },
+    {
+      "id": "groundbreak_dfw_permits",
+      "name": "Groundbreak DFW — Largest Permits This Month",
+      "url": "https://pro.groundbreak.city/dfw/stats/largest-permits-this-month",
+      "prefix": "/dfw/",
+      "coverage": "Dallas-Fort Worth",
+      "category": "Direct permit listing",
+      "signals": ["Issued permits", "Project address", "Declared value", "Work description"],
+      "description": "Direct list of the largest DFW building permits issued during the current calendar month.",
+      "caution": "Permit value can be incorrect or repeated; follow the project link and verify the contractor role."
+    },
+    {
+      "id": "dfw_daily_brief",
+      "name": "DFW Daily Brief — Development & Openings",
+      "url": "https://dfwdailybrief.com/topics/development/",
+      "coverage": "Dallas-Fort Worth",
+      "category": "Regional project tracker",
+      "signals": ["Permits", "Developments", "Openings", "Land use"],
+      "description": "Source-linked updates on new projects, permits, major openings and development decisions across DFW.",
+      "caution": "Some entries describe registrations or plans rather than active construction."
+    },
+    {
+      "id": "dfw_planroom_public",
+      "name": "DFW Online Planroom — Public Projects",
+      "url": "https://www.dfwplanroom.com/projects/public",
+      "coverage": "Dallas-Fort Worth",
+      "category": "Construction project and bid listings",
+      "signals": ["Public projects", "Bid status", "Bid deadlines", "Project companies"],
+      "description": "Public DFW construction listings with project names, locations, bid status, deadlines and associated companies.",
+      "caution": "A company on a bid-stage listing may be the owner, architect or bidding contact rather than the awarded general contractor."
+    },
+    {
+      "id": "txdot_facilities_awards",
+      "name": "TxDOT Facilities — Awarded Contractor Listings",
+      "url": "https://www.txdot.gov/business/suppliers-vendors/facilities-projects-letting.html",
+      "coverage": "Texas statewide",
+      "category": "Awarded construction listings",
+      "signals": ["Awarded contractor", "Project description", "Bid amount", "Award pending"],
+      "description": "Official building, renovation, repair and rehabilitation listings that identify awarded contractors and bid amounts.",
+      "caution": "Use rows marked Awarded for confirmed contractors; Award pending and bidder entries are not final awards."
+    },
+    {
+      "id": "zabalist_texas",
+      "name": "Zabalist — Texas Construction Bids",
+      "url": "https://www.zabalist.com/bids",
+      "coverage": "Texas statewide",
+      "category": "Direct bid-opportunity listing",
+      "signals": ["Construction bids", "RFPs", "Due dates", "Issuing agencies"],
+      "description": "Direct Texas construction bid and RFP listing assembled from public procurement records.",
+      "caution": "A bid opportunity identifies work to pursue, not the contractor that ultimately wins it."
+    },
+    {
+      "id": "rebusiness_texas",
+      "name": "REBusinessOnline — Texas",
+      "url": "https://rebusinessonline.com/category/texas/",
+      "coverage": "Texas statewide",
+      "category": "Commercial development news",
+      "signals": ["Groundbreakings", "Completions", "Expansions", "Project teams"],
+      "description": "Frequent Texas commercial-real-estate reports that often identify developers, contractors, project size and timing.",
+      "caution": "The Texas feed also contains sales, leases and financing with no new construction signal."
+    },
+    {
+      "id": "bisnow_dfw",
+      "name": "Bisnow — Dallas-Fort Worth",
+      "url": "https://www.bisnow.com/top-stories/dallas-ft-worth",
+      "coverage": "Dallas-Fort Worth",
+      "category": "Regional commercial-property news",
+      "signals": ["Deal sheets", "Groundbreakings", "Expansions", "Completions"],
+      "description": "DFW property reporting whose deal sheets frequently name developers, general contractors and construction milestones.",
+      "caution": "Access and article depth can vary; deal sheets also include financing and leasing items."
+    },
+    {
+      "id": "construction_dive",
+      "name": "Construction Dive — Commercial Building",
+      "url": "https://www.constructiondive.com/topic/commercial-building/",
+      "coverage": "United States",
+      "category": "National construction news",
+      "signals": ["Contract awards", "Project starts", "Major builds", "Contractor expansion"],
+      "description": "National reporting on significant construction awards, starts, contractors and commercial-building projects.",
+      "caution": "National coverage is selective and will not represent every local project."
+    },
+    {
+      "id": "saunanews_bathhouses",
+      "name": "SaunaNews — Bathhouse Project Tracker",
+      "url": "https://www.saunanews.com/bathhouses/briefing",
+      "coverage": "United States and Europe",
+      "category": "Niche opening tracker",
+      "signals": ["Under construction", "Site preparation", "Opening soon", "Announced"],
+      "description": "The tracker previously identified by the user; it follows bathhouse projects and keeps milestone evidence explicit.",
+      "caution": "A narrow sector source; useful for the tracking method but low volume for general contractors."
+    }
+  ]
+}

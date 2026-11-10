@@ -3,9 +3,9 @@
   "description": "Construction buying-signal research for screen-printing shops; matches are evidence candidates.",
   "signals": {
     "hiring": ["hiring", "recruiting", "vacancies", "join our team"],
-    "award": ["awarded", "contract award", "selected contractor"],
-    "mobilization": ["mobilization", "mobilisation", "groundbreaking", "breaking ground"],
-    "expansion": ["expansion", "new facility", "new office", "expanding"]
+    "award": ["awarded", "contract award", "bid awarded", "selected contractor", "contractor selected", "wins contract", "notice to proceed"],
+    "mobilization": ["mobilization", "mobilisation", "groundbreaking", "breaking ground", "project start", "construction starts", "under construction", "work underway", "site preparation"],
+    "expansion": ["expansion", "new facility", "new office", "new headquarters", "new location", "new branch", "expanding", "opening", "opening soon", "opens", "opened"]
   },
   "geography": {
     "Dallas": ["dallas"],

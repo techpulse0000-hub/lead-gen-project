@@ -19,7 +19,7 @@ from .profile import load_profile
 USER_AGENT = "LeadIntelPrototype/0.1"
 SOCIAL = {"linkedin.com","instagram.com","facebook.com","x.com","twitter.com","indeed.com","tiktok.com","youtube.com","youtu.be"}
 SIGNALS = load_profile()["signals"]
-RELEVANT = re.compile(r"news|project|career|jobs|award|press|blog|construction|expand", re.I)
+RELEVANT = re.compile(r"news|project|permit|development|opening|deal|bid|letting|award|press|blog|construction|groundbreak|underway|expand", re.I)
 
 
 def canonical(url):
@@ -186,12 +186,21 @@ def within(url, source_origin, prefix):
     return origin(url)==source_origin and (path==prefix.rstrip("/") or path.startswith(prefix if prefix.endswith("/") else prefix+"/"))
 
 
+class CrawlCancelled(Exception):
+    pass
+
+
 class Crawler:
-    def __init__(self, store, transport=None, delay=2, profile=None):
+    def __init__(self, store, transport=None, delay=2, profile=None, should_stop=None):
         self.store,self.transport=store,transport or fetch_public
         self.delay=delay
         self.last_request={}
         self.profile=profile or load_profile()
+        self.should_stop=should_stop or (lambda: False)
+
+    def checkpoint(self):
+        if self.should_stop():
+            raise CrawlCancelled("Stopped by user; collected evidence retained")
 
     def submit(self, source_id):
         source=self.store.db.execute("SELECT * FROM sources WHERE id=? AND enabled=1", (source_id,)).fetchone()
@@ -203,6 +212,7 @@ class Crawler:
         return ident
 
     def _request(self, job, source, url, limit):
+        self.checkpoint()
         url=canonical(url)
         if origin(url)!=source["origin"]:
             raise ValueError("Cross-origin request requires a separate admitted source")
@@ -211,10 +221,14 @@ class Crawler:
             if previous:
                 elapsed=max(0,time.time()-datetime.fromisoformat(previous).timestamp())
                 self.last_request[source["origin"]]=time.monotonic()-elapsed
-        ident=self.store.reserve_fetch(job,source["origin"],url)
         pause=self.delay-(time.monotonic()-self.last_request.get(source["origin"],0))
         if pause>0:
-            time.sleep(pause)
+            deadline=time.monotonic()+pause
+            while time.monotonic()<deadline:
+                self.checkpoint()
+                time.sleep(min(.2,max(0,deadline-time.monotonic())))
+        self.checkpoint()
+        ident=self.store.reserve_fetch(job,source["origin"],url)
         self.last_request[source["origin"]]=time.monotonic()
         try:
             response=self.transport(url,limit)
@@ -307,6 +321,7 @@ class Crawler:
             robots=self._robots(job_id,source)
             count=0
             while count<max_pages:
+                self.checkpoint()
                 if time.monotonic()-start>120:
                     status,note="deferred","Job time limit; resume remaining frontier"
                     break
@@ -323,7 +338,9 @@ class Crawler:
                     title=" ".join(page.title)
                     body="\n".join(page.text)
                     signals,places=classify(title+"\n"+body,self.profile)
-                    self.store.ingest(source["id"],final,title,body,page.publication_date,signals,places)
+                    document_id=self.store.ingest(source["id"],final,title,body,page.publication_date,signals,places)
+                    with db:
+                        db.execute("INSERT OR IGNORE INTO job_documents VALUES (?,?)", (job_id,document_id))
                     if row["depth"]<max_depth:
                         for href in page.links:
                             try:
@@ -355,6 +372,8 @@ class Crawler:
                     status,note="deferred","Page limit; remaining frontier retained"
                 elif failed:
                     status="completed_with_gaps"
+        except CrawlCancelled as exc:
+            status,note="cancelled",str(exc)
         except (ValueError,OSError,http.client.HTTPException) as exc:
             status="deferred"
             note=str(exc) if isinstance(exc,ValueError) else type(exc).__name__

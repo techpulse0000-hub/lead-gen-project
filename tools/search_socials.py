@@ -123,6 +123,7 @@ def main():
     key = os.environ.get("TAVILY_API_KEY")
     if not key:
         parser.error("TAVILY_API_KEY is not configured. No requests were sent.")
+    parser.error("Live search has moved to the dashboard's company discovery engine and shared provider budget. This legacy runner is preview-only. No requests were sent.")
     results = []
     for item in queries:
         ident = reserve(db, item)

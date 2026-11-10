@@ -97,6 +97,9 @@ class EngineTests(unittest.TestCase):
         signals,places=classify("Frisco contractor awarded project")
         self.assertEqual(set(places),{"Collin","Denton"})
         self.assertIn("award",signals)
+        signals,_=classify("The project is under construction and opening soon in Dallas")
+        self.assertIn("mobilization",signals)
+        self.assertIn("expansion",signals)
         custom={"id":"camp","signals":{"season":["registration"]},"geography":{"Test County":["test city"]}}
         self.assertEqual(classify("Registration opens in Test City",custom),(["season"],["Test County"]))
 
@@ -205,10 +208,11 @@ class EngineTests(unittest.TestCase):
         thread.start()
         base="http://127.0.0.1:"+str(server.server_port)
         try:
-            with urlopen(base) as r:
+            with urlopen(base+'/search') as r:
                 body=r.read().decode()
                 self.assertIn("&lt;script&gt;",body)
                 self.assertIn("frame-ancestors",r.headers["Content-Security-Policy"])
+                self.assertIn("connect-src 'self'",r.headers["Content-Security-Policy"])
             req=Request(base+"/qualify",data=b"lead_id=1",headers={"Content-Type":"application/x-www-form-urlencoded"})
             with self.assertRaises(HTTPError) as exc:
                 urlopen(req)

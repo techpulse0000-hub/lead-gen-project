@@ -45,6 +45,96 @@ class Store:
           id INTEGER PRIMARY KEY, job_id INTEGER NOT NULL REFERENCES jobs(id),
           origin TEXT NOT NULL, url TEXT NOT NULL, started_at TEXT NOT NULL,
           status TEXT NOT NULL, detail TEXT);
+        CREATE TABLE IF NOT EXISTS research_runs(
+          id INTEGER PRIMARY KEY, request_key TEXT UNIQUE NOT NULL, query TEXT NOT NULL,
+          signal TEXT, geography TEXT, source_ids TEXT NOT NULL, max_pages INTEGER NOT NULL,
+          max_depth INTEGER NOT NULL, status TEXT NOT NULL, created_at TEXT NOT NULL,
+          finished_at TEXT, note TEXT);
+        CREATE TABLE IF NOT EXISTS research_jobs(
+          run_id INTEGER NOT NULL REFERENCES research_runs(id),
+          job_id INTEGER UNIQUE NOT NULL REFERENCES jobs(id), PRIMARY KEY(run_id,job_id));
+        CREATE TABLE IF NOT EXISTS job_documents(
+          job_id INTEGER NOT NULL REFERENCES jobs(id), document_id INTEGER NOT NULL REFERENCES documents(id),
+          PRIMARY KEY(job_id,document_id));
+        CREATE TABLE IF NOT EXISTS discovery_config(
+          run_id INTEGER PRIMARY KEY REFERENCES research_runs(id), industry TEXT NOT NULL,
+          location TEXT NOT NULL, period TEXT NOT NULL, requests_json TEXT NOT NULL);
+        CREATE TABLE IF NOT EXISTS provider_attempts(
+          id INTEGER PRIMARY KEY, run_id INTEGER NOT NULL REFERENCES research_runs(id),
+          provider TEXT NOT NULL, query TEXT NOT NULL, started_at TEXT NOT NULL,
+          status TEXT NOT NULL, reserved_credits INTEGER NOT NULL, reported_credits REAL,
+          note TEXT);
+        CREATE TABLE IF NOT EXISTS discovery_results(
+          id INTEGER PRIMARY KEY, run_id INTEGER NOT NULL REFERENCES research_runs(id),
+          url TEXT NOT NULL, title TEXT NOT NULL, snippet TEXT NOT NULL, provider_date TEXT,
+          companies_json TEXT NOT NULL, signals_json TEXT NOT NULL, places_json TEXT NOT NULL,
+          query TEXT NOT NULL, document_id INTEGER REFERENCES documents(id),
+          UNIQUE(run_id,url));
+        CREATE TABLE IF NOT EXISTS llm_classifications(
+          result_id INTEGER PRIMARY KEY REFERENCES discovery_results(id),
+          status TEXT NOT NULL, model TEXT NOT NULL, prompt_version TEXT NOT NULL,
+          classification_json TEXT, score INTEGER, score_json TEXT,
+          classified_at TEXT NOT NULL, error TEXT);
+        CREATE TABLE IF NOT EXISTS classification_runs(
+          id INTEGER PRIMARY KEY, status TEXT NOT NULL, model TEXT NOT NULL,
+          total INTEGER NOT NULL, processed INTEGER NOT NULL DEFAULT 0,
+          created_at TEXT NOT NULL, finished_at TEXT, note TEXT);
+        CREATE TABLE IF NOT EXISTS lead_quality_reviews(
+          result_id INTEGER PRIMARY KEY REFERENCES discovery_results(id),
+          decision TEXT NOT NULL CHECK(decision IN ('call','no_call','unsure')),
+          note TEXT NOT NULL DEFAULT '', reviewed_at TEXT NOT NULL);
+        CREATE TRIGGER IF NOT EXISTS lead_review_score_gate
+        BEFORE INSERT ON lead_quality_reviews
+        WHEN NOT EXISTS(SELECT 1 FROM llm_classifications c
+          WHERE c.result_id=NEW.result_id AND c.status='completed' AND c.score>=65)
+        BEGIN SELECT RAISE(ABORT,'Lead review requires a passing lead score'); END;
+        CREATE TRIGGER IF NOT EXISTS lead_review_update_score_gate
+        BEFORE UPDATE ON lead_quality_reviews
+        WHEN NOT EXISTS(SELECT 1 FROM llm_classifications c
+          WHERE c.result_id=NEW.result_id AND c.status='completed' AND c.score>=65)
+        BEGIN SELECT RAISE(ABORT,'Lead review requires a passing lead score'); END;
+        CREATE TABLE IF NOT EXISTS apify_runs(
+          id INTEGER PRIMARY KEY, result_id INTEGER NOT NULL REFERENCES discovery_results(id),
+          mode TEXT NOT NULL, target_url TEXT NOT NULL, status TEXT NOT NULL,
+          created_at TEXT NOT NULL, finished_at TEXT, note TEXT);
+        CREATE TABLE IF NOT EXISTS apify_evidence(
+          id INTEGER PRIMARY KEY, run_id INTEGER NOT NULL REFERENCES apify_runs(id),
+          url TEXT NOT NULL, title TEXT NOT NULL, content TEXT NOT NULL,
+          created_at TEXT NOT NULL, UNIQUE(run_id,url));
+        CREATE TABLE IF NOT EXISTS contractor_verifications(
+          result_id INTEGER PRIMARY KEY REFERENCES discovery_results(id),
+          status TEXT NOT NULL, contractor_name TEXT, developer_name TEXT,
+          project_name TEXT, project_address TEXT, confidence TEXT,
+          verification_json TEXT, created_at TEXT NOT NULL, finished_at TEXT, error TEXT);
+        CREATE TABLE IF NOT EXISTS contractor_evidence(
+          id INTEGER PRIMARY KEY, result_id INTEGER NOT NULL REFERENCES discovery_results(id),
+          url TEXT NOT NULL, title TEXT NOT NULL, snippet TEXT NOT NULL,
+          source_type TEXT NOT NULL, created_at TEXT NOT NULL,
+          UNIQUE(result_id,url));
+        CREATE TABLE IF NOT EXISTS contractor_method_attempts(
+          result_id INTEGER NOT NULL REFERENCES discovery_results(id),
+          method_id TEXT NOT NULL, query TEXT NOT NULL, status TEXT NOT NULL,
+          reported_credits REAL, created_at TEXT NOT NULL, finished_at TEXT, error TEXT,
+          PRIMARY KEY(result_id,method_id));
+        CREATE TABLE IF NOT EXISTS contact_runs(
+          id INTEGER PRIMARY KEY, result_id INTEGER NOT NULL REFERENCES discovery_results(id),
+          company TEXT NOT NULL, status TEXT NOT NULL, created_at TEXT NOT NULL, finished_at TEXT,
+          note TEXT, error TEXT);
+        CREATE TABLE IF NOT EXISTS lead_contacts(
+          id INTEGER PRIMARY KEY, run_id INTEGER NOT NULL REFERENCES contact_runs(id),
+          name TEXT NOT NULL, title TEXT NOT NULL, linkedin_url TEXT NOT NULL, location TEXT NOT NULL,
+          emails_json TEXT NOT NULL, provider_verified INTEGER NOT NULL, relevance INTEGER,
+          rank_reason TEXT, created_at TEXT NOT NULL, UNIQUE(run_id,linkedin_url));
+        CREATE TRIGGER IF NOT EXISTS contact_score_gate
+        BEFORE INSERT ON contact_runs
+        WHEN NOT EXISTS(SELECT 1 FROM llm_classifications c
+          WHERE c.result_id=NEW.result_id AND c.status='completed' AND c.score>=65)
+        BEGIN SELECT RAISE(ABORT,'Contact enrichment requires a passing lead score'); END;
+        CREATE TRIGGER IF NOT EXISTS apify_score_gate
+        BEFORE INSERT ON apify_runs
+        WHEN NOT EXISTS(SELECT 1 FROM llm_classifications c
+          WHERE c.result_id=NEW.result_id AND c.status='completed' AND c.score>=65)
+        BEGIN SELECT RAISE(ABORT,'Apify enrichment requires a passing lead score'); END;
         CREATE TABLE IF NOT EXISTS leads(
           id INTEGER PRIMARY KEY, document_id INTEGER NOT NULL REFERENCES documents(id),
           company TEXT NOT NULL, reason TEXT NOT NULL, status TEXT NOT NULL DEFAULT 'flagged',
@@ -95,7 +185,7 @@ class Store:
             self.db.execute("INSERT INTO evidence_fts(rowid,title,body) VALUES(?,?,?)", (ident,title,body))
         return ident
 
-    def search(self, query="", signal=None, geography=None, limit=20, source_id=None):
+    def search(self, query="", signal=None, geography=None, limit=20, source_id=None, run_id=None):
         if not 1 <= limit <= 100 or len(query) > 500:
             raise ValueError("Search limit 1–100; query at most 500 characters")
         tokens = re.findall(r"[\w'-]+", query, re.UNICODE)[:25]
@@ -118,6 +208,9 @@ class Store:
         if source_id is not None:
             sql += " AND d.source_id=?"
             params.append(source_id)
+        if run_id is not None:
+            sql += " AND EXISTS(SELECT 1 FROM job_documents jd JOIN research_jobs rj ON rj.job_id=jd.job_id WHERE jd.document_id=d.id AND rj.run_id=?) AND d.is_demo=0"
+            params.append(run_id)
         sql += " ORDER BY rank,d.retrieved_at DESC,d.id LIMIT ?"
         params.append(limit)
         results = self.rows(sql, params)

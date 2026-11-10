@@ -44,7 +44,7 @@ def search_plan(company=None, location="Dallas", signal="award", domains=(), sin
             "estimated_list_price_usd":round(credits*.008,6),
             "price_as_of":"2026-10-12","coverage":"partial_provider_web_index",
             "requires_local_verification":["company_identity","project_or_job_geography","event_date","commercial_relevance"],
-            "notice":"Live transport and shared metered billing are not implemented in this slice."}
+            "notice":"This command previews requests. Use the dashboard's Find companies flow for live discovery with its provider ledger."}
 
 
 def social_plan(account_url, platform, since, max_posts=20):

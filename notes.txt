@@ -1,0 +1,42 @@
+LEAD INTELLIGENCE PROJECT - PROJECT NOTES
+Updated: 10 November 2026
+
+WHAT THE PROJECT IS ABOUT
+This prototype helps screen-printing shops find organizations that may need branded workwear. It searches for buying signals, presents the evidence for review, and helps identify the right company and operational contacts. Construction contractors in the Dallas-Fort Worth area are the initial pilot; the intended system can later support other industries and signals.
+
+MAJOR UPDATES
+- Company discovery: Search the web with selected buying-signal queries, including a 15-query construction pilot and a larger experimental query bank. Users can select up to ten queries per search.
+- Classification: GPT-4o mini reviews stored search-result details. The dashboard scores and sorts results and lets a screen printer record a call/skip review.
+- Source research: A curated monitor list focuses on project trackers, public records and construction publications, rather than individual contractor websites.
+- Contractor verification: Eligible project leads use existing evidence and ranked searches for awards, permits, first-party reports and trade coverage. The system distinguishes a developer from a general contractor and pending awards from confirmed roles. A second AI review checks cited evidence for new confirmations.
+- Contact lookup: A configured Apify Actor searches for operational contacts, followed by GPT-4o mini role-suitability review. This does not independently verify a person's current employment or email.
+- User experience: Source links, alternative links, progress and error messages are available in the dashboard. Search setup supports background updates without losing matching query selections.
+- Duplicate handling: Exact duplicate source pages can be grouped and an existing verification reused. This does not guarantee all different articles about the same project are deduplicated.
+
+INDEPENDENT AGENT DEMO
+An independent research demo examined 14 unresolved result rows representing 12 distinct investigations. It found three confirmed contractors (25% of 12), one probable candidate, five unresolved cases and three unsuitable leads. One confirmed project was in Guam and one had already been confirmed elsewhere in the database; only one was a new confirmed Texas discovery. The number of individual search queries was not recorded, so a per-query success rate is unavailable. This was a small exploratory test, not a comparison against the dashboard on the same leads.
+
+KNOWN LIMITATIONS AND NEXT STEPS
+- Existing AI classifications and historical contractor confirmations need human review; a developer or a pending award must not be presented as a confirmed general contractor without project-specific evidence.
+- Test the automated contractor lookup against the same projects as the independent agent, track evidence and costs, and address errors in confidence/status handling.
+- Validate the configured Apify contact workflow end-to-end with a live run. Provider records, company matches, roles and email deliverability require independent checks. The carefully filtered manual test is not necessarily the same as the app's current request.
+- Expand research and prompt configuration for other industries after the construction pilot is validated.
+- The dashboard is a local prototype, not a deployed product. Runtime API keys are entered locally and the local lead database is not included in Git.
+
+PROJECT REFERENCES
+README.md - setup, features and limitations
+docs/COMPANY_DISCOVERY.md - discovery workflow
+docs/CONTRACTOR_LOOKUP_METHODS.md - ranked contractor research methods
+docs/SEARCH_TERM_VALIDATION.md - search-term research
+docs/CLOUD_HANDOFF.md - technical handoff
+
+PROJECT DIRECTORY
+leadintel/ - dashboard, discovery, classification, verification and enrichment code
+docs/ - research, setup guides and technical handoff
+data/ - source research and local runtime data; engine.sqlite stays local
+profiles/ - pilot industry and geography settings
+tests/ - automated tests
+tools/ - research and registry utilities
+README.md - main project introduction and setup
+notes.txt - project summary, updates and directory
+.env.example - configuration template without live credentials
