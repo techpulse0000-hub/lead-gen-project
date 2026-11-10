@@ -198,3 +198,106 @@ PRIORITIES FOR THE NEXT DEVELOPER
    Verify company/domain and contact quality; agree on cost limits before live provider testing.
 6. Generalize query, classification and role profiles for another industry only after defining
    its buying signals and acceptance criteria.
+
+COMPLETE FOLDER INVENTORY AND HISTORICAL MATERIAL
+Inventory checked on 10 November 2026. This describes the whole workspace, not just the recent
+chat. Names below distinguish active app code, earlier research, documentation, runtime data
+and material unrelated to the lead-generation project. Some documents record earlier plans or
+snapshots: read them as history and check the code/current notes before relying on their claims.
+
+ROOT FILES
+  README.md - main entry point: setup, workflows, data and links to supporting documents.
+  notes.txt - detailed product, implementation, decision, limitations and folder handoff.
+  HANDOFF_PROMPT.md - an earlier prompt for transferring context to another language model.
+  .env.example - empty environment-variable template for Tavily, OpenAI and Apify; .env is not
+    automatically loaded. Actual keys do not belong in this file or repository.
+  .gitignore - rules excluding Python caches, local environment files and runtime SQLite state.
+  .git/ - Git history, index and configuration; it is repository metadata, not application code.
+
+APPLICATION PACKAGE: leadintel/
+  __init__.py - marks the directory as a Python package.
+  __main__.py - command-line entry point and commands including local server and offline demo.
+  profile.py - loads the research profile and validates its configuration.
+  web.py - HTTP dashboard, routes and server-side UI behavior.
+  discovery.py - company-discovery runs, result handling and grouping.
+  discovery_ui.py - discovery form, query selection and browser interactions.
+  query_bank.py - construction trades, signal vocabulary, templates and ranked pilot terms.
+  llm_classifier.py - GPT-4o mini classification, structured validation and score calculation.
+  contractor_verification.py - project-specific contractor search plan and evidence assessment.
+  contact_enrichment.py - bounded operational-contact lookup, response processing and role review.
+  apify_enrichment.py - optional collection of additional website/project evidence.
+  providers.py - search-provider requests and budget/accounting helpers.
+  crawler.py - bounded website crawling and source-access checks.
+  research.py - research-run lifecycle, collection and state.
+  research_ui.py - research/monitor interface and controls.
+  link_ui.py - source link rendering, previews and alternative-link behavior.
+  store.py - SQLite schema, persisted state and data-access operations.
+
+DATA AND PROFILES
+  profiles/dfw-construction.json - pilot signal, geography and research configuration.
+  data/registry_seed.json - curated seed companies, source sites and platform definitions used
+    in the earlier source-registry research. These are prospects, not a list of paying clients.
+  data/research_review.json - reviewed company/source and public-index research records.
+  data/source_checks.json - source retrieval checks and extracted outbound-link evidence.
+  data/source_registry.json - portable generated source-registry export, including coverage and
+    unresolved/rejected associations.
+  data/source_registry.sqlite - tracked, portable registry database for earlier source research.
+    This is different from the ignored live dashboard database.
+  data/monitor_sources.json - catalogue of tracker, publication and official-record pages.
+  data/reviewed_alternative_links.json - manually reviewed alternate links for matching sources.
+  data/engine.sqlite - local live dashboard database; ignored by Git and not uploaded. It can
+    contain lead and run history. The -wal and -shm files are SQLite runtime companions, also ignored.
+  Source records are dated research, not a guarantee that a website, contact or project is current.
+
+RESEARCH AND OPERATING DOCUMENTS: docs/
+  CLOUD_HANDOFF.md - earlier technical handoff and scope; use this notes file for newer corrections.
+  COMPANY_DISCOVERY.md - search, query selection, classification and discovery behavior.
+  CONTRACTOR_LOOKUP_METHODS.md - ranking of evidence sources and project-contractor methods.
+  ENGINE_QUICKSTART.md - server, CLI, crawler and offline demonstration instructions.
+  MONITOR_SOURCE_RESEARCH.md - construction source recommendations and access limitations.
+  SEARCH_TERM_VALIDATION.md - DFW search-term pilot, examples, caveats and ranking rationale.
+  SEARCH_ENGINE_PLAN.md - proposed architecture, workflow, milestones and early implementation
+    decisions; a design history, not proof every proposed feature exists.
+  SOURCE_AND_SOCIAL_PLAN.md - earlier strategy for company sources, social profiles and costs.
+  SOURCE_REGISTRY.md - readable earlier source-registry research and contractor social profiles.
+  COMPLETION_AUDIT.md - dated delivery check for that earlier source-registry work.
+
+UTILITIES: tools/
+  build_registry.py - builds registry outputs from curated research inputs, including SQLite and
+    human-readable/export artifacts; inspect before running because it writes generated files.
+  verify_sources.py - checks source URLs and extracts verification evidence; it makes network
+    requests when run and writes research outputs.
+  search_socials.py - builds/executes bounded search-provider queries for company/social research;
+    previews can be free, whereas a real provider search requires credentials and may cost credits.
+  __init__.py - package marker for the utilities.
+
+TESTS: tests/
+  test_engine.py - core storage, crawling, limits, safety, demo and dashboard behavior.
+  test_registry.py - source/social identity matching, registry integrity and budget behavior.
+  test_discovery.py - query banks, discovery selection, provider usage and result handling.
+  test_llm_classifier.py - structured classification, scoring, sales review and sorting.
+  test_contractor_verification.py - evidence, status, duplicate reuse and contractor-search flow.
+  test_apify_enrichment.py - evidence-enrichment eligibility, bounds and credential handling.
+  test_contact_enrichment.py - contact-run status, parsing, role filtering and project gate.
+  test_research.py - monitoring/research runs, crawling bounds and background UI behavior.
+  test_link_ui.py - source previews, safe rendering and alternative-link behavior.
+  These tests use fixtures/mocks for provider behavior; passing them alone does not verify live
+  provider access, factual correctness, email deliverability or the usefulness of lead results.
+
+OTHER LOCAL FOLDERS
+  .tmp/ - local temporary/dashboard logs and a youth-assembly image-work directory; not part of
+    the lead-generation application and not uploaded with the project updates.
+  .tmp-tests/ - local temporary test directory, if present; no application feature depends on it.
+  exports/lead-gen-llm-handoff-2026-10-14.zip - an older generated lead-gen handoff archive.
+    Treat it as a dated snapshot, not a complete current copy of the project.
+  exports/youth-assembly/ - image edits, exported pictures and editing notes for unrelated work.
+    These files are local, untracked and excluded from this project's GitHub upload.
+  Python __pycache__ directories, when present, are generated caches rather than source files.
+
+VERSION CONTROL AND REPRODUCIBILITY
+Tracked code, curated research data and documentation are uploaded to the existing private
+GitHub repository. Local runtime database contents, API keys, temporary files and unrelated
+exports are not part of that upload. This inventory describes their presence; it does not copy
+their contents into GitHub. The original Word planning document and full chat transcript are
+not stored in the project directory. For another developer to recreate the precise live lead
+history, that developer would need a separately authorized transfer of the local database.

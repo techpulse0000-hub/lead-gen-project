@@ -7,6 +7,8 @@ For the complete project handoff, start with [notes.txt](notes.txt), then consul
 [the technical handoff](docs/CLOUD_HANDOFF.md) and the workflow guides linked below. The notes
 explain the product decisions, implementation, experiments, limitations and next steps. Historical
 counts and older dated sections are snapshots, not assurances about the current database or tests.
+The file-by-file folder inventory is in [notes.txt](notes.txt), including the historical source
+registry, utilities, local runtime state and unrelated exports.
 
 A runnable first slice now lives in `leadintel/`: company discovery through broad web search,
 structured LLM classification, explainable lead scoring, bounded public-website crawling,
